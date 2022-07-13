@@ -1,0 +1,4153 @@
+focus_tree = {
+	id = german_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = DDR
+		}
+		modifier = {
+			add = -20
+			has_global_flag = GER_use_standard_tree
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 500 y = 2800 }
+
+
+	focus = {
+		id = DDR_A_New_Germany
+		icon = GFX_goal_GER_flag_germany_democratic
+		cost = 5.00
+		x = 9
+		y = 0
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					set_province_name = { id = 9471 name = "Karl-Marx-Stadt"}
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_German_Dominance
+		prerequisite = { focus = DDR_A_New_Germany }
+		mutually_exclusive = {
+			focus = DDR_German_Coexistence
+		}
+		icon = GFX_goal_DDR_join_comintern
+		cost = 5.00
+		x = 11
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_opinion_modifier = {
+									target = WGR
+									modifier = hostile_status
+								}
+					WGR = {
+						add_opinion_modifier = {
+									target = DDR
+									modifier = hostile_status
+								}
+					}	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_German_Coexistence
+		icon = GFX_goal_DDR_FRG
+		prerequisite = {
+			focus = DDR_A_New_Germany 
+		}
+		mutually_exclusive = {
+			focus = DDR_German_Dominance
+		}
+		cost = 5.00
+		x = 7
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_opinion_modifier = {
+									target = WGR
+									modifier = huge_increase
+								}
+					WGR = {
+						add_opinion_modifier = {
+									target = DDR
+									modifier = huge_increase
+								}
+					}	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Recognize_the_FRG
+		icon = GFX_goal_ger_kpd
+		prerequisite = { focus = DDR_German_Coexistence }
+		cost = 5.00
+		x = 8
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Embassy_to_the_FRG
+		icon = GFX_goal_ger_kpd
+		prerequisite = { focus = DDR_German_Coexistence }
+		cost = 5.00
+		x = 5
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_One_Germany_Policy
+		icon = GFX_goal_ger_kpd
+		prerequisite = { focus =  DDR_German_Dominance }
+		cost = 5.00
+		x = 10
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_World_Revolution
+		icon = GFX_goal_sov_east_vs_west
+		prerequisite = { focus =  DDR_German_Dominance }
+		cost = 5.00
+		x = 12
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			add_named_threat = { threat = 5 name = SOV_world_revolution_t }			
+			if = {
+				limit = {
+					has_dlc = "La Resistance" 
+				}
+				add_ideas = SOV_world_revolution_idea_LaR
+			}
+			else = {
+				add_ideas = SOV_world_revolution_idea
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Join_the_Comintern
+		icon = GFX_goal_DDR_join_comintern
+		prerequisite = {
+			focus =   DDR_One_Germany_Policy
+			focus = DDR_Recognize_the_FRG
+		}
+			mutually_exclusive = {
+			focus = DDR_Stalinnote
+		}
+		cost = 5.00
+		x = 9
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					if = {
+							limit = {
+									is_faction_leader = yes
+								}
+							custom_effect_tooltip = ger_sov_buddies_tooltip_2
+						}
+					custom_effect_tooltip = ger_sov_buddies_tooltip
+					add_ideas = DDR_soviet_german_friendship
+					SOV = {
+							add_opinion_modifier = {
+									target = GER
+									modifier = ger_sov_alliance_focus
+								}
+							add_ideas = soviet_german_friendship
+							country_event = ddr.1
+						}
+				}
+		search_filters = { FOCUS_FILTER_ALLIANCE FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Stalinnote
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus = DDR_Recognize_the_FRG
+		}
+		prerequisite = {
+			focus = DDR_Embassy_to_the_FRG
+		}
+		mutually_exclusive = {
+			focus = DDR_Join_the_Comintern
+		}
+		cost = 5.00
+		x = 7
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					country_event = ddr.4
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Peaceful_reunion_with_the_FRG
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus = DDR_Stalinnote
+		}
+		mutually_exclusive = {
+			focus = DDR_Give_Up_Western_Claims
+		}
+		cost = 5.00
+		x = 7
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Give_Up_Western_Claims
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus = DDR_Stalinnote
+		}
+		mutually_exclusive = {
+			focus = DDR_Peaceful_reunion_with_the_FRG
+		}
+		cost = 5.00
+		x = 5
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = Demilitarize_the_Border
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus = DDR_Give_Up_Western_Claims
+		}
+		cost = 5.00
+		x = 5
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = Negotiate_Terms
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus = DDR_Peaceful_reunion_with_the_FRG
+		}
+		cost = 5.00
+		x = 7
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = Negotiate_Terms
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus = DDR_Peaceful_reunion_with_the_FRG
+		}
+		cost = 5.00
+		x = 7
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Open_the_Borders
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus = Negotiate_Terms
+		}
+		cost = 5.00
+		x = 6
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Common_Currency
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus = Negotiate_Terms
+		}
+		cost = 5.00
+		x = 8
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Negotiate_the_Economic_System
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus = DDR_Common_Currency
+		}
+		cost = 5.00
+		x = 8
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Joint_Security
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus = DDR_Open_the_Borders
+		}
+		cost = 5.00
+		x = 6
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Economic_Union
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus = DDR_Negotiate_the_Economic_System
+		}
+		cost = 5.00
+		x = 8
+		y = 8
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Neue_Westpolitik
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+		}
+		cost = 5.00
+		x = 7
+		y = 10
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = DDR_The_World_Revolution
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus =  DDR_Join_the_Comintern
+		}
+		prerequisite = {
+			focus =  DDR_Form_the_Greater_German_Democratic_Republic
+		}
+		cost = 5.00
+		x = 9
+		y = 12
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Destroy_Capitalism
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus =  DDR_The_World_Revolution
+		}
+
+		cost = 5.00
+		x = 10
+		y = 14
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Destroy_Fascism
+		icon = GFX_goal_ger_kpd
+		prerequisite = {
+			focus =  DDR_The_World_Revolution
+		}
+
+		cost = 5.00
+		x = 8
+		y = 14
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Reunite_with_Austria
+		icon = GFX_goal_DDR_anschluss
+		cost = 10.00
+		prerequisite = { 
+			focus =   DDR_One_Germany_Policy 
+		}
+		prerequisite = {
+		 	focus =  DDR_World_Revolution
+		}
+		x = 12
+		y = 3
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = no
+		completion_reward = {
+					AUS = {
+						country_event = ddr.2
+					}	
+				}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	focus = {
+		id = DDR_Integrate_Austria
+		icon = GFX_goal_DDR_anschluss
+		cost = 10.00
+		prerequisite = {
+			focus = DDR_Reunite_with_Austria
+		}
+		x = 13
+		y = 4
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+	}
+	
+	focus = {
+		id = DDR_Reunite_all_german_people
+		icon = GFX_goal_ger_kpd
+		cost = 10.00
+		prerequisite = {
+			focus = DDR_Reunite_with_Austria
+		}
+		x = 11
+		y = 4
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+	}
+	focus = {
+		id = DDR_Support_a_French_Commune
+		icon = GFX_goal_ger_kpd
+		prerequisite = { focus =  DDR_Reunite_all_german_people }
+		mutually_exclusive = {
+			focus = DDR_Reclaim_Elsace_Lorraine
+		}
+		cost = 5.00
+		x = 10
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Alliance_with_the_French_Commune
+		icon = GFX_goal_DDR_FRA
+		prerequisite = { focus =  DDR_Support_a_French_Commune }
+		cost = 5.00
+		x = 10
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_ALLIANCE FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Bring_the_Revolution_to_the_Lowlands
+		icon = GFX_hol_communist_electoral_success
+		prerequisite = { focus =  DDR_Alliance_with_the_French_Commune }
+		cost = 5.00
+		x = 10
+		y = 8
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_ALLIANCE FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Reclaim_the_East
+		icon = GFX_focus_chi_reach_out_to_france
+		prerequisite = {
+			focus =  DDR_Alliance_with_the_French_Commune
+			focus =	DDR_Integrate_Elsace_Lorraine
+		}
+		prerequisite = {
+			focus = DDR_Integrate_the_Sudeten
+		}
+		mutually_exclusive = {
+			focus = DDR_Peace_with_Poland
+		}
+		cost = 5.00
+		x = 14
+		y = 8
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	focus = {
+		id = DDR_Peace_with_Poland
+		icon = GFX_focus_generic_polish_deal
+		prerequisite = {
+			focus =  DDR_Alliance_with_the_French_Commune
+			focus =	DDR_Integrate_Elsace_Lorraine
+		}
+		mutually_exclusive = {
+			focus = DDR_Reclaim_the_East
+		}
+		cost = 5.00
+		x = 12
+		y = 8
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_ALLIANCE FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Take_Memel
+		icon = GFX_focus_chi_reach_out_to_france
+		prerequisite = {
+			focus = DDR_Reclaim_the_East
+		}
+		cost = 5.00
+		x = 14
+		y = 10
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	focus = {
+		id = DDR_Reclaim_Elsace_Lorraine
+		icon = GFX_goal_GER_claim_alsace_lorraine
+		prerequisite = { focus = DDR_Reunite_all_german_people }
+		mutually_exclusive = {
+			focus = DDR_Support_a_French_Commune
+		}
+		cost = 5.00
+		x = 12
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Integrate_Elsace_Lorraine
+		icon = GFX_goal_GER_claim_alsace_lorraine
+		prerequisite = { focus = DDR_Reclaim_Elsace_Lorraine }
+		cost = 5.00
+		x = 12
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Topple_the_swiss_goverment
+		icon = GFX_focus_attack_switzerland
+		cost = 10.00
+		prerequisite = {
+			focus = DDR_Reunite_all_german_people
+		}
+		x = 11
+		y = 5
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = no
+		completion_reward = {
+					create_wargoal = {
+							type = take_state_focus
+							target = SWI
+							expire = 0
+							generator = { 151 }
+						}
+				}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	focus = {
+		id = DDR_Claim_the_Sudeten
+		icon = GFX_goal_ger_fate_of_czech
+		cost = 10.00
+		prerequisite = {
+			focus = DDR_Integrate_Austria
+		}
+		prerequisite = {
+			focus = DDR_Reunite_all_german_people
+		}
+		x = 14
+		y = 5
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+	}
+	focus = {
+		id = DDR_Fund_Slovakian_Insurgents
+		icon = GFX_goal_SLO_map_revolt
+		cost = 10.00
+		prerequisite = {
+			focus = DDR_Claim_the_Sudeten
+		}
+		x = 16
+		y = 6
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+	}
+	focus = {
+		id = DDR_Ally_Slovakia
+		icon = GFX_goal_DDR_SLO
+		cost = 10.00
+		prerequisite = {
+			focus = DDR_Fund_Slovakian_Insurgents
+		}
+		x = 16
+		y = 7
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+	}
+	focus = {
+		id = DDR_Integrate_the_Sudeten
+		icon = GFX_goal_generic_deadly_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = DDR_Claim_the_Sudeten
+		}
+		x = 14
+		y = 6
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+	}
+	focus = {
+		id = DDR_Form_the_Greater_German_Democratic_Republic
+		icon = GFX_goal_ger_kpd
+		cost = 10.00
+		prerequisite = {
+			focus = DDR_Take_Memel
+		}
+		x = 14
+		y = 11
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+
+
+
+
+	focus = {
+		id = DDR_Intervene_in_the_Spanish_Civilwar
+		icon = GFX_goal_italy_study_the_spanish_civil_war
+		cost = 5.00
+		x = 16
+		y = 0
+		available = {
+			SPR = {
+				has_civil_war = yes
+			}
+		}
+		bypass = {
+			SPR = {
+				has_government = communism
+			}
+		}
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_Intervention_in_Spain
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+
+
+
+
+
+
+
+
+
+	focus = {
+		id = DDR_Unite_the_Party
+		icon = GFX_goal_DDR_SED
+		cost = 5.00
+		mutually_exclusive = {
+			focus = DDR_Let_the_KPD_lead_us!
+		}
+		x = 20
+		y = 0
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_political_power = 100
+			add_ideas = DDR_New_Found_SED
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
+	}
+	focus = {
+		id = DDR_German_Socialism
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Unite_the_Party
+		}
+		x = 20
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_German_Socialism	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Stay_Independent
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_German_Socialism
+		}
+		x = 20
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_The_Zentralkomitee
+		icon = GFX_goal_generic_election
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Stay_Independent
+		}
+		x = 20
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Police_state
+		icon = GFX_goal_generic_secret_police
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_The_Zentralkomitee
+		}
+		x = 20
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = GER_police_state	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Centralize_Control
+		icon = GFX_goal_generic_secret_police_2
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Police_state
+		}
+		x = 20
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Defend_against_the_fascists
+		icon = GFX_goal_fascism_banned
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_German_Socialism
+		}
+		prerequisite = {
+			focus = DDR_German_Dominance
+		}
+		x = 16
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Fortify_the_border_against_the_western_fascists
+		icon = GFX_goal_generic_city_chain_forts
+		cost = 12.9
+		prerequisite = {
+			focus = DDR_Defend_against_the_fascists
+		}
+		x = 16
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 25
+					hidden_effect = {
+						60 = {
+							if = {
+								limit = {
+									is_controlled_by = ROOT
+								}
+								custom_effect_tooltip = GER_west_wall_forts
+								hidden_effect = {
+									add_building_construction = {
+										type = bunker
+										level = 3
+										province = 9497
+										instant_build = yes
+									}
+									add_building_construction = {
+										type = bunker
+										level = 3
+										province = 482
+										instant_build = yes
+									}
+									add_building_construction = {
+										type = bunker
+										level = 3
+										province = 3500
+										instant_build = yes
+									}
+									add_building_construction = {
+										type = bunker
+										level = 3
+										province = 3561
+										instant_build = yes
+									}
+									add_building_construction = {
+										type = bunker
+										level = 3
+										province = 425
+										instant_build = yes
+									}
+								}
+							}
+						}
+						65 = {
+							if = {
+								limit = {
+									is_controlled_by = ROOT
+								}
+								custom_effect_tooltip = GER_west_wall_forts
+								hidden_effect = {
+									add_building_construction = {
+										type = bunker
+										level = 3
+										province = 9441
+										instant_build = yes
+									}
+								}
+							}
+						}
+						64 = {
+							if = {
+								limit = {
+									is_controlled_by = ROOT
+								}
+								add_building_construction = {
+									type = bunker
+									level = 3
+									province = 6487
+									instant_build = yes
+								}
+								add_building_construction = {
+									type = bunker
+									level = 3
+									province = 3522
+									instant_build = yes
+								}
+								add_building_construction = {
+									type = bunker
+									level = 3
+									province = 11359
+									instant_build = yes
+								}
+								add_building_construction = {
+									type = bunker
+									level = 3
+									province = 11219
+									instant_build = yes
+								}
+							}
+						}
+						61 = {
+							if = {
+								limit = {
+									is_controlled_by = ROOT
+								}
+								add_building_construction = {
+									type = bunker
+									level = 3
+									province = 11305
+									instant_build = yes
+								}
+								add_building_construction = {
+									type = bunker
+									level = 3
+									province = 9294
+									instant_build = yes
+								}
+							}
+						}
+					}
+				}	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Stop_the_Braindrain
+		icon = GFX_goal_generic_prison_break
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Fortify_the_border_against_the_western_fascists
+		}
+		x = 15
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Create_the_Grenztruppen
+		icon = GFX_goal_extensive_conscription_communism
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Fortify_the_border_against_the_western_fascists
+		}
+		x = 17
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Keine_Absichten
+		icon = GFX_goal_generic_communist_pride
+		cost = 2.90
+		prerequisite = {
+			focus = DDR_Create_the_Grenztruppen
+		}
+		prerequisite = {
+			focus = DDR_Stop_the_Braindrain
+		}
+		x = 16
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 100	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
+
+	}
+
+
+
+	focus = {
+		id = DDR_Let_the_KPD_lead_us!
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		mutually_exclusive = {
+			focus = DDR_Unite_the_Party
+		}
+		x = 26
+		y = 0
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					set_party_name = {
+
+							ideology = communism
+							long_name = DDR_communism_party_KPD_long
+							name =  DDR_communism_party_KPD
+						}	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Follow_Moskow
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Let_the_KPD_lead_us!
+		}
+		x = 26
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				add_opinion_modifier = {
+									target = SOV
+									modifier = huge_increase
+								}
+					SOV = {
+						add_opinion_modifier = {
+									target = DDR
+									modifier = huge_increase
+						}
+					}	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Stalinist_Socialism
+		icon = GFX_goal_stalin
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Follow_Moskow
+		}
+		x = 26
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_Stalinist_Socialism
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT}
+	}
+	focus = {
+		id = DDR_Institute_Propaganda
+		icon = GFX_focus_propaganda_soviet
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Stalinist_Socialism
+		}
+		x = 26
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_stability = 0.05
+					add_timed_idea = { idea = DDR_Propaganda days = 365 }
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT}
+	}
+	focus = {
+		id = DDR_Invite_Advisors_from_the_Soviet_Union
+		icon = GFX_goal_generic_soviet_assistance
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Institute_Propaganda
+		}
+		x = 26
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Von_der_Sowjetunion_lernen_heißt_siegen_lernen.
+		icon = GFX_focus_generic_russian_deal_communist
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Invite_Advisors_from_the_Soviet_Union
+		}
+		x = 26
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Purge_the_fascists
+		icon = GFX_goal_generic_backstab
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Unite_the_Party
+			focus = DDR_Let_the_KPD_lead_us!
+		}
+		x = 23
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				custom_effect_tooltip = DDR_The_Threat_of_the_fascist_remnants_will_be_removed
+					hidden_effect = {
+						remove_ideas = DDR_Ruins_of_the_3rd_Reich
+						add_ideas = DDR_Purged_the_Counterrevolutionaires
+					}
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Purge_the_Party
+		icon = GFX_goal_generic_communist_loyalty
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Purge_the_fascists
+		}
+		x = 22
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				swap_ideas = {
+					remove_idea = DDR_New_Found_SED
+					add_idea = DDR_SED
+				}
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Purge_the_Administration
+		icon = GFX_goal_generic_communist_government2
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Purge_the_fascists
+		}
+		x = 24
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					remove_ideas = DDR_very_unstable_government
+					add_ideas = DDR_Strong_government	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Ban_All_Anti_Revolutionary_Parties
+		icon = GFX_goal_generic_election_rigged
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Betriebskampfgruppen
+		}
+		x = 23
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					set_politics = {
+							ruling_party = communism
+							elections_allowed = no
+						}	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Organize_the_People
+		icon = GFX_focus_generic_socialist_action
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Purge_the_Administration
+		}
+		prerequisite = {
+			focus = DDR_Purge_the_Party
+		}
+		prerequisite = {
+			focus = DDR_Stalinist_Socialism
+			focus =	DDR_Stay_Independent
+		}
+		x = 23
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					
+				}
+		search_filters = { FOCUS_FILTER_STABILITY }
+
+	}
+	focus = {
+		id = DDR_Betriebskampfgruppen
+		icon = GFX_goal_DDR_KdAK
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Organize_the_People
+		}
+		x = 23
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_Betriebskampfgruppen_idea
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_Crack_Down_on_Churches
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Ban_All_Anti_Revolutionary_Parties
+		}
+		prerequisite = {
+			focus = DDR_Centralize_Control
+			focus = DDR_Von_der_Sowjetunion_lernen_heißt_siegen_lernen.
+		}
+		x = 25
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_Betriebskampfgruppen_idea
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_Introduce_the_Jugendweihe
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Crack_Down_on_Churches
+		}
+		prerequisite = {
+			focus = DDR_Centralize_Control
+			focus = DDR_Von_der_Sowjetunion_lernen_heißt_siegen_lernen.
+		}
+		x = 25
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_A_new_Anthem
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Ban_All_Anti_Revolutionary_Parties
+		}
+		prerequisite = {
+			focus = DDR_Centralize_Control
+			focus = DDR_Von_der_Sowjetunion_lernen_heißt_siegen_lernen.
+		}
+		x = 27
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_Betriebskampfgruppen_idea
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_Crack_Down_on_Students
+		icon = GFX_goal_generic_censorship
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Ban_All_Anti_Revolutionary_Parties
+		}
+		prerequisite = {
+			focus = DDR_Centralize_Control
+			focus = DDR_Von_der_Sowjetunion_lernen_heißt_siegen_lernen.
+		}
+		x = 23
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_Betriebskampfgruppen_idea
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_Found_the_FDJ
+		icon = GFX_goal_DDR_FDJ
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Crack_Down_on_Students
+		}
+		x = 23
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_FDJ_Org
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY}
+	}	 	 	 	 
+	focus = {
+		id = DDR_Expatriate_critical_thinkers
+		icon = GFX_goal_generic_seperation
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Ban_All_Anti_Revolutionary_Parties
+		}
+		prerequisite = {
+			focus = DDR_Centralize_Control
+			focus = DDR_Von_der_Sowjetunion_lernen_heißt_siegen_lernen.
+		}
+		x = 21
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_Betriebskampfgruppen_idea
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_Cult_of_Personality
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Expatriate_critical_thinkers
+		}
+		x = 21
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_Betriebskampfgruppen_idea
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_Control_of_the_Media
+		icon = GFX_focus_por_workers_of_iberia
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Ban_All_Anti_Revolutionary_Parties
+		}
+		prerequisite = {
+			focus = DDR_Centralize_Control
+			focus = DDR_Von_der_Sowjetunion_lernen_heißt_siegen_lernen.
+		}
+		x = 19
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_Betriebskampfgruppen_idea
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_The_Country_of_Marx_and_Engels
+		icon = GFX_goal_DDR_FDJ
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_FDJ
+		}
+		x = 23
+		y = 8
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_FDJ_Org
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY}
+	}
+	focus = {
+		id = DDR_Marx_Legacy
+		icon = GFX_goal_generic_karl_marx
+		prerequisite = {
+			focus = DDR_The_Country_of_Marx_and_Engels
+		}
+		cost = 5.00
+		x = 23
+		y = 9
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_Betriebskampfgruppen_idea
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	}	 	 	 	 
+
+
+
+
+
+
+
+
+
+
+
+
+	focus = {
+		id = DDR_Found_the_NVA
+		icon = GFX_goal_ger_nva
+		cost = 5.00
+		x = 41
+		y = 0
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					remove_ideas = DDR_No_Army
+					add_timed_idea = {
+							idea = DDR_New_NVA
+							days = 365
+						} 
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Found_the_Airforce
+		icon = GFX_goal_DDR_AIRFORCE
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_NVA
+		}
+		x = 52
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Create_the_Paratroopers
+		icon = GFX_focus_generic_paratrooper
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_Airforce
+		}
+		x = 48
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				add_tech_bonus = {
+					name = GER_above_maginot
+					bonus = 1
+					uses = 1
+					category = r56_paratroops_infantry_tech
+				}
+				add_tech_bonus = {
+					name = special_forces_bonus
+					bonus = 1.0
+					uses = 2
+					category = r56_special_forces_training_tech 
+				}				
+			}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Focus_On_Bombers
+		icon = GFX_goal_generic_air_bomber_new
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_Airforce
+		}
+		mutually_exclusive = {
+			focus = DDR_Focus_On_Fighters
+		}
+		x = 51
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Focus_On_Fighters
+		icon = GFX_goal_generic_air_fighter2_new
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_Airforce
+		}
+		mutually_exclusive = {
+			focus = DDR_Focus_On_Bombers
+		}
+		x = 53
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Scout_Planes
+		icon = GFX_goal_generic_air_fighter2_new
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Focus_On_Fighters
+		}
+		x = 55
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Heavy_Fighters
+		icon = GFX_goal_generic_air_heavy_fighter2_new
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Focus_On_Fighters
+		}
+		x = 53
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+				completion_reward = {
+					add_tech_bonus = {
+							name = air_plane_models
+							bonus = 1
+							uses = 2
+							category = heavy_air
+						}
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Research_Heavy_Bombers
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Focus_On_Bombers
+		}
+		x = 51
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Produce_our_own_Aircraft
+		icon = GFX_goal_DDR_plane
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Research_Heavy_Bombers
+			focus =	DDR_Heavy_Fighters
+		}
+		mutually_exclusive = {
+			focus = DDR_Buy_Aircraft_from_the_Soviets
+		}
+		x = 51
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Buy_Aircraft_from_the_Soviets
+		icon = GFX_goal_fighters_soviet
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Research_Heavy_Bombers
+			focus =	DDR_Heavy_Fighters
+		}
+		mutually_exclusive = {
+			focus = DDR_Produce_our_own_Aircraft
+		}
+		x = 53
+		y = 4
+		ai_will_do = {
+				factor = 20
+			}
+			completion_reward = {
+			SOV = {
+				add_ai_strategy = {
+					type = support
+					id = ROOT
+					value = 25
+				}
+			}
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1
+				uses = 1
+				technology = early_fighter	
+				technology = fighter1
+				technology = fighter2
+			}
+	
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1
+				uses = 1
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+			}
+			
+			add_opinion_modifier = { target = SOV modifier = gen_aircraft_soviet }
+		}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT FOCUS_FILTER_RESEARCH }
+	}
+	focus = {
+		id = DDR_Bombing_Doctrines
+		icon = GFX_goal_fighters_soviet
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Buy_Aircraft_from_the_Soviets
+			focus =	DDR_Produce_our_own_Aircraft
+		}
+		x = 54
+		y = 5
+		ai_will_do = {
+				factor = 20
+			}
+			completion_reward = {
+			SOV = {
+				add_ai_strategy = {
+					type = support
+					id = ROOT
+					value = 25
+				}
+			}
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1
+				uses = 1
+				technology = early_fighter	
+				technology = fighter1
+				technology = fighter2
+			}
+	
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1
+				uses = 1
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+			}
+			
+			add_opinion_modifier = { target = SOV modifier = gen_aircraft_soviet }
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_The_Ultimate_Weapon
+		icon = GFX_focus_wonderweapons
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Bombing_Doctrines
+		}
+		x = 54
+		y = 6
+		ai_will_do = {
+				factor = 20
+			}
+			completion_reward = {
+			SOV = {
+				add_ai_strategy = {
+					type = support
+					id = ROOT
+					value = 25
+				}
+			}
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1
+				uses = 1
+				technology = early_fighter	
+				technology = fighter1
+				technology = fighter2
+			}
+	
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1
+				uses = 1
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+			}
+			
+			add_opinion_modifier = { target = SOV modifier = gen_aircraft_soviet }
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Fighter_Doctrines
+		icon = GFX_goal_fighters_soviet
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Buy_Aircraft_from_the_Soviets
+			focus =	DDR_Produce_our_own_Aircraft
+		}
+		x = 50
+		y = 5
+		ai_will_do = {
+				factor = 20
+			}
+			completion_reward = {
+			SOV = {
+				add_ai_strategy = {
+					type = support
+					id = ROOT
+					value = 25
+				}
+			}
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1
+				uses = 1
+				technology = early_fighter	
+				technology = fighter1
+				technology = fighter2
+			}
+	
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1
+				uses = 1
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+			}
+			
+			add_opinion_modifier = { target = SOV modifier = gen_aircraft_soviet }
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Aircraft_Production
+		icon = GFX_goal_fighters_soviet
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Buy_Aircraft_from_the_Soviets
+			focus =	DDR_Produce_our_own_Aircraft
+		}
+		x = 52
+		y = 5
+		ai_will_do = {
+				factor = 20
+			}
+			completion_reward = {
+			SOV = {
+				add_ai_strategy = {
+					type = support
+					id = ROOT
+					value = 25
+				}
+			}
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1
+				uses = 1
+				technology = early_fighter	
+				technology = fighter1
+				technology = fighter2
+			}
+	
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1
+				uses = 1
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+			}
+			
+			add_opinion_modifier = { target = SOV modifier = gen_aircraft_soviet }
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Research_CAS
+		icon = GFX_goal_generic_air_CAS_new
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Focus_On_Bombers
+		}
+		x = 49
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_tech_bonus = {
+							name = air_plane_models
+							bonus = 1
+							uses = 2
+							category = light_air
+							category = medium_air
+							category = heavy_air
+						}
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	focus = {
+		id = DDR_Naval_Support
+		icon = GFX_goal_generic_air_naval_bomber_new
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_Airforce
+		}
+		x = 47
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Torpedo_Bombers
+		icon = GFX_goal_generic_air_naval_bomber_new
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Naval_Support
+		}
+		prerequisite = {
+			focus = DDR_Research_CAS
+		}
+		x = 48
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Found_the_Navy
+		icon = GFX_goal_DDR_NAVY
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_NVA
+		}
+		x = 41
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			navy_experience = 100
+			hidden_effect = {
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					load_oob = DDR_1936_naval_mtg
+				}
+				else = {
+					load_oob = DDR_1936_naval_legacy
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Dominate_the_oceans
+		icon = GFX_goal_sea_navy
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_Navy
+		}
+		mutually_exclusive = {
+			focus = DDR_Build_A_Baltic_Fleet
+		}
+		x = 42
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Build_A_Baltic_Fleet
+		icon = GFX_goal_coastal_navy
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_Navy
+		}
+		mutually_exclusive = {
+			focus = DDR_Dominate_the_oceans
+		}
+		x = 40
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Carrier_Effort
+		icon = GFX_goal_generic_navy_carrier
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Battleship_Effort
+		}
+		x = 45
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1
+				uses = 1
+				category = cv_tech
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Heavy_Cruiser_Effort
+		icon = GFX_goal_generic_admirality
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Battleship_Effort
+		}
+		x = 43
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				uses = 2
+				category = ca_tech
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Naval_Squadrons
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Carrier_Effort
+		}
+		prerequisite = {
+			focus = DDR_Naval_Support
+		}
+		x = 46
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			add_tech_bonus = {
+				name = FRA_carrier_focus
+				bonus = 1.0
+				uses = 2
+				category = naval_air
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Battleship_Effort
+		icon = GFX_goal_generic_battleship
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Dominate_the_oceans
+		}
+		x = 44
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1
+				uses = 1
+				category = bb_tech	
+				
+			}
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1
+				uses = 1
+				category = bc_tech
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Destroyer_Effort
+		icon = GFX_goal_generic_wolf_pack
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Build_A_Baltic_Fleet
+			focus = DDR_Dominate_the_oceans
+		}
+		x = 41
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1
+				uses = 1
+				category = dd_tech
+				
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Submarine_Effort
+		icon = GFX_goal_generic_navy_submarine
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_auxiliary_cruisers
+		}
+		x = 39
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				ahead_reduction = 2
+				uses = 1
+				category = ss_tech
+			}
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				add_tech_bonus = {
+					name = SPR_navy_modernization
+					bonus = 2
+					uses = 1
+					category = torpedo_equipment
+					technology = basic_submarine_snorkel
+					technology = improved_submarine_snorkel					
+				}
+			}
+
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_auxiliary_cruisers
+		icon = GFX_goal_generic_large_fleet
+		cost = 5
+		x = 38
+		y = 3
+		prerequisite = {
+			focus = DDR_Build_A_Baltic_Fleet
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+			}
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+
+				add_tech_bonus = {
+					name = SPR_navy_modernization
+					bonus = 1
+					uses = 1
+					category = damage_control_tech
+				}																		
+			}			
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	focus = {
+		id = DDR_Light_Cruiser_Effort
+		icon = GFX_goal_generic_admirality
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_auxiliary_cruisers
+		}
+		x = 37
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				uses = 2
+				category = cl_tech
+			}
+		}				
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Landing_Craft_Effort
+		icon = GFX_goal_generic_landing_craft
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_auxiliary_cruisers
+		}
+		x = 35
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				add_tech_bonus = {
+						name = GER_landing_craft
+						bonus = 1
+						uses = 2
+						category = tp_tech
+					}
+				}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_The_Peoples_Marines
+		icon = GFX_goal_DDR_Marines
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Landing_Craft_Effort
+		}
+		x = 35
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Expand_Our_Dockyards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Pride_of_the_Fleet
+		}
+		x = 41
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				add_timed_idea{
+					idea = FRA_naval_construction_program1_idea
+					days = 700
+			}
+			add_tech_bonus = {
+				name = FRA_naval_construction_program
+				bonus = 1
+				uses = 2
+				category = naval_doctrine
+			}
+			navy_experience = 25
+			62 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			61 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			63 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = naval_base
+						province = 6332
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Baltic_Doctrine
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Destroyer_Effort
+		}
+		prerequisite = {
+			focus = DDR_Submarine_Effort
+		}
+		prerequisite = {
+			focus = DDR_Landing_Craft_Effort
+		}
+		prerequisite = {
+			focus = DDR_Light_Cruiser_Effort
+		}
+		x = 39
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+	focus = {
+		id = DDR_Ocean_Doctrine
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Destroyer_Effort
+		}
+		prerequisite = {
+			focus = DDR_Carrier_Effort
+		}
+		prerequisite = {
+			focus = DDR_Heavy_Cruiser_Effort
+		}
+		x = 43
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+
+	}
+	focus = {
+		id = DDR_Repair_Capabilties
+		icon = GFX_focus_generic_shipbuilding
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Expand_Our_Dockyards
+		}
+		x = 42
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = ENG_expand_the_repair_yards
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+
+	}
+	focus = {
+		id = DDR_Trade_Interdiction
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Ocean_Doctrine
+			focus = DDR_Baltic_Doctrine
+		}
+
+		x = 40
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+
+	}
+	focus = {
+		id = DDR_Pride_of_the_Fleet
+		icon = GFX_goal_generic_blue_navy
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Dominate_the_oceans
+			focus = DDR_Build_A_Baltic_Fleet
+		}
+
+		x = 41
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	focus = {
+		id = DDR_Found_the_Army
+		icon = GFX_goal_DDR_ARMY
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_NVA
+		}
+		x = 31
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			army_experience = 100
+			hidden_effect = {
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					load_oob = DDR_1936_naval_mtg
+				}
+				else = {
+					load_oob = DDR_1936_naval_legacy
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY }
+
+	}
+	focus = {
+		id = DDR_Create_the_Infrantry
+		icon = GFX_focus_generic_army_modernizations
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_Army
+		}
+		x = 34
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+
+	}
+	focus = {
+		id = DDR_Officer_Corps
+		icon = GFX_goal_generic_communist_officer
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Create_the_Infrantry
+		}
+		x = 34
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+
+	}
+	focus = {
+		id = DDR_Motorized_Divisions
+		icon = GFX_goal_generic_modernizing_the_cavalry
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Officer_Corps
+		}
+		prerequisite = {
+			focus = DDR_Tankdoctrines
+		}
+		x = 33
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_ARMY }
+
+	}
+	focus = {
+		id = DDR_Tanksbattalions
+		icon = GFX_goal_generic_heavy_armour_russian
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_Army
+		}
+		x = 32
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+	}
+	focus = {
+		id = DDR_Tankdoctrines
+		icon = GFX_goal_generic_tank_map
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Tanksbattalions
+		}
+		x = 32
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+	focus = {
+		id = DDR_Amphibious_Tanks
+		icon = GFX_goal_tank_offensive
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_The_Peoples_Marines
+		}
+		x = 35
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+	focus = {
+		id = DDR_Create_a_light_Militia
+		icon = GFX_goal_generic_left_militia
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_Army
+		}
+		x = 28
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_Mass_Conscription
+		icon = GFX_goal_generic_left_militia
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Create_a_light_Militia
+		}
+		x = 28
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_Mass_Army
+		icon = GFX_goal_generic_left_militia
+		cost = 5.00
+		prerequisite = {
+			focus =  DDR_Mass_Conscription
+		}
+		x = 28
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_NVA_Special_Forces
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_Army
+		}
+		x = 30
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+
+	}
+	focus = {
+		id = DDR_NVA_Sonderaufgaben
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_NVA_Special_Forces
+		}
+		x = 30
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+	}
+	focus = {
+		id = DDR_NVA_combined_arms
+		icon = GFX_goal_red_army
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_NVA_Sonderaufgaben
+		}
+		prerequisite = {
+			focus = DDR_Tankdoctrines
+		}
+		x = 31
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+	}
+	focus = {
+		id = DDR_Elite_Army
+		icon = GFX_goal_red_army
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_NVA_combined_arms
+		}
+		x = 30
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+	}
+	focus = {
+		id = DDR_NVA_Exercises
+		icon = GFX_goal_red_army
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Elite_Army
+			focus = DDR_Mass_Army
+		}
+		x = 29
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_Superiority_by_Firepower
+		icon = GFX_goal_red_army
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_NVA_combined_arms
+		}
+		prerequisite = {
+			focus = DDR_Tankdoctrines
+		}
+		prerequisite = {
+			focus = DDR_Motorized_Divisions
+		}
+		x = 32
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+	}
+	focus = {
+		id = DDR_Light_Artillery
+		icon = GFX_goal_tank_hunt
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Superiority_by_Firepower
+		}
+		x = 31
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+	}
+	focus = {
+		id = DDR_Heavy_Artillery
+		icon = GFX_goal_generic_mobile_artillery_medium
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Superiority_by_Firepower
+		}
+		x = 33
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+	}
+	focus = {
+		id = DDR_2nd_Artillery
+		icon = GFX_goal_soviet_rocketry
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Heavy_Artillery
+		}
+		prerequisite = {
+			focus = DDR_Light_Artillery
+		}
+		x = 32
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+	}
+	focus = {
+		id = DDR_Create_a_communist_economy
+		icon = gfx_social_welfare
+		cost = 5.00
+		x = 70
+		y = 0
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_communitize_the_banks
+		icon = GFX_focus_rom_parties_end
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Create_a_communist_economy
+		}
+		x = 66
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Found_the_VEB
+		icon = GFX_goal_generic_land_seizure
+		cost = 14.29
+		prerequisite = {
+			focus = DDR_Create_a_communist_economy
+		}
+		x = 74
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Industrialize_the_Nation
+		icon = GFX_goal_communist_factory
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Create_a_communist_economy
+		}
+		x = 70
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Socialist_Defense_Industry
+		icon = GFX_goal_DDR_Com_Industry
+		cost = 10.00
+		prerequisite = {
+			focus = DDR_Create_a_communist_economy
+		}
+		x = 72
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}			
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	}
+	focus = {
+		id = DDR_Anti_Fascist_Arsenal
+		icon = GFX_goal_generic_commie_investments
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Socialist_Defense_Industry
+		}
+		x = 72
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Build_up_the_Arms_Industry
+		icon = GFX_focus_generic_combined_arms
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Anti_Fascist_Arsenal
+		}
+		x = 72
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Build_up_our_Airports
+		icon = GFX_goal_CAN_toronto_island_airport
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Build_up_the_Arms_Industry
+		}
+		x = 72
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = air_base
+						level = 5
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = air_base
+						level = 5
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = air_base
+						level = 5
+						instant_build = yes
+					}
+				}
+			}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Build_up_our_Harbours
+		icon = GFX_goal_generic_expand_the_naval_industry
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Build_up_our_Airports
+		}
+		x = 72
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			every_state = {
+				limit = {
+					is_fully_controlled_by = DDR
+					is_coastal = yes
+					arms_factory > 1
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					province = 9388
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					province = 321
+					instant_build = yes
+				}
+			}
+
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Introduce_the_Mark
+		icon = GFX_goal_generic_economics_reform
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_communitize_the_banks
+		}
+		x = 66
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					remove_ideas = DDR_Weak_Currency
+					add_ideas = DDR_Reformed_Currency	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+
+	focus = {
+		id = DDR_Limit_Private_Wealth
+		icon = GFX_goal_generic_state_economy
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Introduce_the_Mark
+		}
+		x = 66
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Price_Controls
+		icon = GFX_focus_mex_privatisation
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Limit_Private_Wealth
+		}
+		x = 66
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Found_the_Notenbank
+		icon = GFX_goal_stock_exchange
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Price_Controls
+		}
+		x = 66
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Volkseigenes_Gut
+		icon = GFX_goal_generic_commie_investments
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Create_a_communist_economy
+		}
+		x = 68
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Food_rationing
+		icon = GFX_goal_agrarian_reform
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Volkseigenes_Gut
+		}
+		x = 68
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Increase_Food_Supply
+		icon = GFX_focus_prc_agrarian_socialism
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Food_rationing
+		}
+		x = 68
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	}
+	focus = {
+		id = DDR_Invest_in_Agriculture
+		icon = GFX_goal_generic_commie_investments
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Increase_Food_Supply
+		}
+		x = 68
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_subsidize_the_farms
+		icon = GFX_goal_generic_farm_tractor
+		cost = 1.00
+		prerequisite = {
+			focus = DDR_Invest_in_Agriculture
+		}
+		x = 68
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Socialist_Utopia
+		icon = gfx_social_welfare
+		cost = 1.00
+		prerequisite = {
+			focus = DDR_subsidize_the_farms
+		}
+		prerequisite = {
+			focus = DDR_Plan_the_Economy
+		}
+		prerequisite = {
+			focus = DDR_Build_up_our_Harbours
+		}
+		prerequisite = {
+			focus = DDR_Expand_Aluminum_Industry
+		}
+		prerequisite = {
+			focus = DDR_Found_the_Notenbank
+		}
+		x = 70
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Expand_the_southern_Highways
+		icon = GFX_goal_generic_road
+		cost = 1.00
+		prerequisite = {
+			focus = DDR_Socialist_Utopia
+		}
+		x = 71
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Expand_the_northern_Highways
+		icon = GFX_goal_generic_road
+		cost = 1.00
+		prerequisite = {
+			focus = DDR_Socialist_Utopia
+		}
+		x = 69
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_IDK
+		icon = GFX_goal_ger_kpd
+		cost = 1.00
+		prerequisite = {
+			focus = DDR_Expand_the_northern_Highways
+		}
+		prerequisite = {
+			focus = DDR_Expand_the_southern_Highways
+		}
+		x = 70
+		y = 8
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = DDR_5_Year_Plan
+		icon = gfx_five_year_plan_continue
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Industrialize_the_Nation
+		}
+		x = 70
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			add_timed_idea = {
+							idea = DDR_5_Year_Plan
+							days = 1825
+						}			
+			}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Communitize_Wealth
+		icon = GFX_goal_communist_visible_hand
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_5_Year_Plan
+		}
+		x = 70
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_Consumer_goods_idea
+				}		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Regulate_the_Economy
+		icon = GFX_goal_generic_state_economy
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Communitize_Wealth
+		}
+		x = 70
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+	focus = {
+		id = DDR_Plan_the_Economy
+		icon = GFX_goal_generic_communist_economy
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Regulate_the_Economy
+		}
+		x = 70
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+	}
+	focus = {
+		id = DDR_Found_RWN
+		icon = GFX_goal_generic_radio_development
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_VEB
+		}
+		x = 74
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_ideas = DDR_robotron_idea	
+				}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Found_the_VEB_Leuna-Werke
+		icon = GFX_goal_DDR_communist_industrialization
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_RWN
+		}
+		x = 74
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				add_ideas = DDR_Leuna_Werke		
+				}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	focus = {
+		id = DDR_Eisenhüttenkombinat_Ost
+		icon = GFX_goal_tblra_steel
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_VEB_Leuna-Werke
+		}
+		x = 74
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				random_owned_controlled_state = {
+					prioritize = {
+						60
+					}
+					limit = {
+						is_core_of = DDR
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+						add_resource = {
+						type = steel
+						amount = 25
+					}
+				}
+			}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STEEL}
+	}
+	focus = {
+		id = DDR_Expand_Aluminum_Industry
+		icon = GFX_goal_tblra_aluminium
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Eisenhüttenkombinat_Ost
+		}
+		x = 74
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = {
+					45
+				}
+				limit = {
+					is_core_of = DDR
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = aluminum_mill
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	}
+	focus = {
+		id = DDR_Secure_our_Oil
+		icon = GFX_goal_refining
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Expand_Aluminum_Industry
+		}
+		x = 74
+		y = 6
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					
+				}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH FOCUS_FILTER_OIL }
+	}
+	focus = {
+		id = DDR_Build_Fuel_Storage_Facilites
+		icon = GFX_goal_CAN_imperial_oil
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Secure_our_Oil
+		}
+		x = 79
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					
+				}
+		search_filters = { FOCUS_FILTER_OIL }
+	}
+	focus = {
+		id = DDR_Treaty_with_the_Soviets
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Secure_our_Oil
+		}
+		x = 77
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					
+				}
+		search_filters = { FOCUS_FILTER_OIL }
+	}
+	focus = {
+		id = DDR_Treaty_with_Romania
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Secure_our_Oil
+		}
+		x = 75
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					
+				}
+		search_filters = { FOCUS_FILTER_OIL }
+	}
+	
+	focus = {
+		id = DDR_Support_Science
+		icon = GFX_goal_supremacy_of_will
+		cost = 5.00
+		x = 78
+		y = 0
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_research_slot = 1
+				}
+				search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Expand_the_Universities
+		icon = GFX_goal_SOV_education_initiative
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Support_Science
+		}
+		x = 78
+		y = 1
+			ai_will_do = {
+				factor = 30
+			}
+			completion_reward = {
+				add_research_slot = 1
+			}
+				search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Autarky
+		icon = GFX_goal_generic_oil_refinery
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Secure_our_Oil
+		}
+		x = 73
+		y = 7
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				random_owned_controlled_state = {
+					prioritize = { 50 }
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = synthetic_refinery
+						level = 3
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 60 }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = fuel_silo
+						level = 2
+						instant_build = yes
+					}
+				}	
+				}
+		search_filters = { FOCUS_FILTER_OIL }
+	}
+	focus = {
+		id = DDR_VEB_Erdöl-Erdgas_Grimmen
+		icon = GFX_goal_generic_oil_refinery
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Autarky
+		}
+		x = 73
+		y = 8
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+			62 = {
+				if = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_resource = {
+					type = oil
+					amount = 12
+				}
+			}
+			}
+		}
+		search_filters = { FOCUS_FILTER_OIL }
+	}
+	
+	focus = {
+		id = DDR_Zuses_Legacy
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Support_Science
+		}
+		x = 76
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {	
+			add_tech_bonus = {
+				name = enigma
+				bonus = 1
+				uses = 1
+				category = computing_tech
+			}
+		}
+				search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Research_the_Computer
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Zuses_Legacy
+		}
+		prerequisite = {
+			focus = DDR_Found_RWN
+		}
+		x = 76
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {	
+			add_tech_bonus = {
+				name = enigma
+				bonus = 1
+				uses = 1
+				category = computing_tech
+			}
+		}
+				search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Nuclear_Research
+		icon = GFX_focus_wonderweapons
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Found_the_VEB_Leuna-Werke
+		}
+		prerequisite = {
+			focus = DDR_Continue_the_Uranprojekt
+		}
+		x = 78
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = nuclear_reactor
+						level = 2
+						instant_build = yes
+					}
+				}
+				}
+				search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Continue_the_Uranprojekt
+		icon = GFX_goal_generic_nuclear_energy
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Expand_the_Universities
+		}
+		x = 78
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_research_slot = 1
+				}
+				search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Radar_Research
+		icon = GFX_goal_generic_radar2
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Support_Science
+		}
+		x = 80
+		y = 1
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_research_slot = 1
+				}
+				search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Research_Jet_Engines
+		icon = GFX_goal_ger_262_jet
+		cost = 10.00
+		prerequisite = {
+			focus = DDR_Radar_Research
+		}
+		x = 80
+		y = 2
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_tech_bonus = {
+							name = secret_bonus2
+							bonus = 1
+							uses = 1
+							category = rocketry
+						}
+				}
+				search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Expand_the_Pennemünde_Missile_Research
+		icon = GFX_focus_rocketry
+		cost = 1.00
+		prerequisite = {
+			focus = DDR_Research_Jet_Engines
+		}
+		x = 80
+		y = 3
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_tech_bonus = {
+							name = secret_bonus3
+							bonus = 1
+							uses = 2
+							category = rocketry
+						}
+				}
+				search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Continue_Missile_Research
+		icon = GFX_goal_soviet_rocketry
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Expand_the_Pennemünde_Missile_Research
+		}
+		x = 80
+		y = 4
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_research_slot = 1
+				}
+				search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+	focus = {
+		id = DDR_Nuclear_Missiles
+		icon = GFX_goal_FRA_nuclear
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Continue_Missile_Research
+		}
+		prerequisite = {
+			focus = DDR_Nuclear_Research
+		}
+		x = 78
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_research_slot = 1
+				}
+				search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+	focus = {
+		id = DDR_Nuclear_Submarines
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		prerequisite = {
+			focus = DDR_Continue_Missile_Research
+		}
+		prerequisite = {
+			focus = DDR_Nuclear_Research
+		}
+		x = 76
+		y = 5
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_research_slot = 1
+				}
+				search_filters = { FOCUS_FILTER_RESEARCH }
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+focus = {
+		id = DDR_Found_the_Stasi
+		icon = GFX_goal_ger_kpd
+		cost = 5.00
+		x = 20
+		y = 20
+			ai_will_do = {
+					factor = 10
+				}
+			completion_reward = {
+					add_political_power = 200	
+				}
+		search_filters = { FOCUS_FILTER_ESPIONAGE }
+
+	}
+
+
+

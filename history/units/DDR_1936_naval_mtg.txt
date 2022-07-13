@@ -1,0 +1,21 @@
+﻿units = {
+
+	##### NAVAL UNITS #####
+	fleet = {
+		name = "Volksmarine"			
+		naval_base = 6282
+		task_force = {
+			name = "First Volksmarine Squadron"
+			location = 6282
+			ship = { name = "HMS Leamington" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = DDR creator = DDR } } }
+			ship = { name = "HMS Redoubt" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = DDR creator = DDR } } }
+			ship = { name = "HMS Rotherham" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = DDR creator = DDR } } }
+		}				
+		task_force = {
+			name = "Second Volksmarine Squadron"
+			location 321
+			ship = { name = "HMS Raider" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = DDR creator = DDR } } }
+			ship = { name = "HMS Nadder" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = DDR creator = DDR } } }
+		}					
+	}
+}

@@ -7081,7 +7081,67 @@ spriteType = {
 		name = "GFX_goal_spr_take_back_gibraltar"
 		texturefile = "gfx/interface/goals/spr/r56_goal_spr_take_back_gibraltar.dds"
 	}
-
+		SpriteType = {
+		name = "GFX_goal_DDR_anschluss"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_Anschluss_of_Austria.dds"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_join_comintern"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_SOV-GDR.dss"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_communist_industrialization"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_Industry.dds"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_plane"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_Air_Cooperation.dds"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_FRG"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_FRG-GDR.dds"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_FDJ"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_FDJ.dds"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_SED"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_SED.dds"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_SLO"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_map_revolt.dds"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_FRA"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_FraCom.dds"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_NAVY"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_NVA_NAVY.dds"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_AIRFORCE"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_NVA_AIRFORCE.dds"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_ARMY"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_NVA_ARMY.dds"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_Com_Industry"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_communist_industrialization.dds"
+	}	
+		SpriteType = {
+		name = "GFX_goal_DDR_KdAK"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_KdAK.dds"
+	}
+		SpriteType = {
+		name = "GFX_goal_DDR_Marines"
+		texturefile = "gfx/interface/goals/ddr/r56_goal_DDR_Marines.dds"
+	}
+	
 
 	###MAL
 	spriteType = {

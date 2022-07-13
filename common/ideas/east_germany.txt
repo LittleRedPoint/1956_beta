@@ -1,18 +1,458 @@
 ideas = {
-
-	political_advisor = {
-
-		DDR_generic_politician1 = {
-
-			picture = generic_political_advisor_europe_1
-
-			allowed = {
-				original_tag = DDR
+	country = {
+ 		DDR_Consumer_goods_idea = {
+			picture = generic_coastal_navy
+			cost = 200
+			removal_cost = -1
+			available = {
+				has_government = communism
 			}
-			
-			traits = { smooth_talking_charmer }
+			allowed = {
+				has_war = yes
+			}
+	
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+		DDR_New_Found_SED = {
+			picture = generic_coastal_navy
+			cost = 200
+			removal_cost = -1
+			available = {
+				has_government = communism
+			}
+			allowed = {
+				has_war = yes
+			}
+	
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+		DDR_SED = {
+			picture = generic_coastal_navy
+			cost = 200
+			removal_cost = -1
+			available = {
+				has_government = communism
+			}
+			allowed = {
+				has_war = yes
+			}
+	
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+		DDR_robotron_idea = {
+			picture = generic_coastal_navy
+			cost = 200
+			removal_cost = -1
+			available = {
+				has_government = communism
+			}
+			allowed = {
+				has_war = yes
+			}
+	
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				license_armor_purchase_cost = -0.5
+			}
+		}
+		DDR_Betriebskampfgruppen_idea = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = GFX_idea_POL_Workers_Brigades
+			modifier = {
+				conscription = 0.02
+			}
+		}
+		DDR_Construction_of_the_Wall = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_manpower_bonus
+			modifier = {
+				conscription = 0.02
+			}
+		}
+		DDR_Propaganda = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_manpower_bonus
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.075
+			}
+		}
+		DDR_Purged_the_Counterrevolutionaires = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = GFX_idea_tblra_centralized_communist_government
+			modifier = {
+				conscription = 0.02
+			}
+		}
+		DDR_Resistance_of_the_Churches = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_production_bonus
+			modifier = {
+				conscription = 0.02
+			}
+		}
+		DDR_soviet_german_friendship = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = GFX_idea_generic_fascist_army
+			modifier = {
+				communism_drift = 0.01
+				stability_factor = -0.1
+				conscription = 0.05
+			}
 		}
 
+		DDR_Ruins_of_the_3rd_Reich = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = GFX_idea_generic_fascist_army
+			modifier = {
+				fascism_drift = 0.01
+				stability_factor = -0.1
+				drift_defence_factor = -0.5
+			}
+		}
+		DDR_Churches_suppressed = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_production_bonus
+			modifier = {
+				stability_factor = 0.05
+			}
+		}
+		DDR_Leuna_Werke = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_production_bonus
+			modifier = {
+				global_building_slots_factor = 0.1
+				production_speed_buildings_factor = 0.05
+				production_speed_arms_factory_factor = 0.05
+				local_resources_factor = 0.1
+			}
+		}
+		DDR_Weak_Currency = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_corrupted_economy
+			modifier = {
+				global_building_slots_factor = -0.1
+				production_speed_buildings_factor = -0.15
+				consumer_goods_factor = 0.2
+			}
+		}
+		DDR_Reformed_Currency = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_production_bonus
+			modifier = {
+				global_building_slots_factor = -0.1
+				production_speed_buildings_factor = -0.15
+				consumer_goods_factor = 0.2
+			}
+		}
+		DDR_Crashing_Currency = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_corrupted_economy
+			modifier = {
+				production_speed_buildings_factor = -0.35
+				consumer_goods_factor = 0.5
+			}
+		}
+		DDR_Strong_Currency = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_production_bonus
+			modifier = {
+				global_building_slots_factor = 0.1
+				production_speed_buildings_factor = 0.15
+				consumer_goods_factor = -0.1
+			}
+		}
+		DDR_very_unstable_government = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = disjointed_government
+			modifier = {
+				stability_weekly = -0.005
+				political_power_gain = -0.5
+				stability_factor = -0.2
+				justify_war_goal_time = 0.5
+				subversive_activites_upkeep = 0.75
+				conscription = -0.05
+				drift_defence_factor = -0.5
+			}
+		}
+		DDR_Soviet_Advisors = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = disjointed_government
+			modifier = {
+				stability_weekly = 0.005
+				political_power_gain = 0.5
+				stability_factor = 0.2
+				justify_war_goal_time = 0.5
+				subversive_activites_upkeep = 0.75
+				drift_defence_factor = 0.5
+			}
+		}
+		DDR_Strong_government = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = disjointed_government
+			modifier = {
+				stability_weekly = 0.005
+				political_power_gain = 0.5
+				stability_factor = 0.2
+				justify_war_goal_time = 0.5
+				subversive_activites_upkeep = 0.75
+				drift_defence_factor = 0.5
+			}
+		}
+		DDR_New_NVA = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_production_bonus
+			modifier = {
+				conscription = 0.015
+				army_morale_factor = -0.1
+				army_org_Factor = -0.05
+			}
+		}
+		GER_police_state = {
+			removal_cost = -1
+			allowed = {
+				always = no				
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			picture = generic_spy_intel
+			modifier = {
+				resistance_damage_to_garrison = -0.6
+				stability_factor = -0.05
+			}
+		}
+		DDR_No_Army = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_production_bonus
+			modifier = {
+				conscription = -0.1
+				army_org_Factor = -0.5
+				army_morale_factor = -0.3
+			}
+		}
+		DDR_German_Socialism = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = ger_the_great_red_menace
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.5
+				production_speed_buildings_factor = 0.05
+
+			}
+		}		
+		DDR_Stalinist_Socialism = {
+
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+
+			picture = ger_the_great_red_menace
+			
+
+			modifier = {
+				subversive_activites_upkeep = -0.25
+				stability_factor = 0.05
+				political_power_gain = 0.5
+
+			}
+		}
+		DDR_Intervention_in_Spain = {
+
+			name = DDR_Intervention_in_Spain
+
+			removal_cost = -1
+			
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			rule = {
+				can_send_volunteers = yes
+			}
+
+			picture = generic_pp_unity_bonus
+			
+			modifier = {
+				send_volunteer_size = 5
+				send_volunteers_tension = -0.3
+				army_org_Factor = 0.05
+				army_morale_factor = 0.05
+			}
+		}
+		DDR_5_Year_Plan = {
+
+			removal_cost = -1
+			
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_pp_unity_bonus
+			
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				global_building_slots_factor = 0.05
+			}
+		}
+		DDR_FDJ_Org = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_manpower_bonus
+			modifier = {
+				stability_factor = 0.1
+			}
+		}
+		DDR_German_Engineering = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_manpower_bonus
+			modifier = {
+				research_speed_factor = 0.1
+			}
+		}
+		DDR_Republikflucht = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = generic_manpower_bonus
+			modifier = {
+				production_factory_efficiency_gain_factor = -0.1
+				research_speed_factor = -0.15
+				air_ace_generation_chance_factor = -0.15
+				air_accidents_factor = 0.15
+				experience_gain_air_factor = -0.15
+				stability_factor = -0.1
+			}
+			research_bonus = {
+				air_equipment = -0.15
+				electronics = -0.15
+			}
+		}
+	}
+	political_advisor = {
+
+		DDR_generic_politician11 = {
+			picture = generic_political_advisor_europe_2
+			allowed = {
+				original_tag = GER
+			}
+			available = {
+				if = {
+					has_completed_focus = GER_denounce_versailles
+				}
+				OR = {
+					has_government = communism
+				}
+			}
+			traits = {
+				ideological_crusader
+			}
+			modifier = {
+				communism_drift = 0.01
+				stability_factor = 0.03
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
 		DDR_generic_politician2 = {
 
 			picture = generic_political_advisor_europe_2
@@ -34,10 +474,34 @@ ideas = {
 			
 			traits = { editor }
 		}
+		DDR_ernst_thalmann = {
+			picture = generic_political_advisor_europe_3
+			allowed = {
+				original_tag = DDR
+			}
+			available = {
+				has_completed_focus = DDR_Invite_Advisors_from_the_Soviet_Union
+			}
+			traits = {
+				communist_revolutionary
+			}
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
 	}
 
 	army_chief = {
-		
+		DDR_test = {
+			picture = generic_army_europe_1
+			traits = {
+				army_chief_organizational_2
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
 		DDR_army_chief1 = {
 			
 			picture = generic_army_europe_1

@@ -1,0 +1,291 @@
+###########################
+# East German Events R56
+###########################
+
+add_namespace = ddr
+
+#sov-ddr alliance
+country_event = {
+	id = ddr.1
+	title = ddr.1.t
+	desc = ddr.1.d
+	picture = GFX_report_event_molotov_ribbentrop_stalin_pact
+
+	is_triggered_only = yes
+
+	option = {
+		name = ddr.1.a
+		dismantle_faction = yes
+		add_stability = -0.1
+		every_other_country = {
+			limit = {
+				OR = {
+					AND = {
+						NOT = { tag = DDR }
+						has_government = fascism
+					}
+					has_government = democratic
+				}
+			}
+			add_opinion_modifier = { target = SOV modifier = hostile_status }
+		}
+		DDR = {
+			if = {
+					limit = {
+						is_faction_leader = yes
+					}
+					dismantle_faction = yes
+			}
+			if = {
+					limit = {
+						is_in_faction  = yes
+					}
+					remove_from_faction = DDR
+			}
+			add_stability = -0.2
+			create_faction = "the_berlin_moscow_pact"
+			add_to_faction = SOV
+			add_named_threat = { threat = 10 name = germany.1.t }
+			every_other_country = {
+				limit = {
+					has_government = fascism
+				}
+				add_opinion_modifier = { target = DDR modifier = hostile_status }
+			}
+			every_other_country = {
+				limit = {
+					has_government = democratic
+				}
+				add_opinion_modifier = { target = DDR modifier = hostile_status }
+			}
+		}
+	}
+	option = {
+		name = ddr.1.b
+		ai_chance = { factor = 0 }
+		DDR = {
+			country_event = ddr.2
+			effect_tooltip = {
+				remove_ideas = soviet_german_friendship
+				create_wargoal = {
+					type = take_state_focus
+					target = SOV
+					generator = { 219 217 } # Moscow and Stalingrad
+				}
+			}
+		}
+		remove_opinion_modifier = { target = GER modifier = ger_sov_alliance_focus }
+		remove_ideas = soviet_german_friendship
+	}
+}
+country_event = {
+	id = ddr.2
+	title = ddr.2.t
+	desc = ddr.2.d
+	picture = GFX_report_event_hitler_parade
+
+	is_triggered_only = yes
+
+	option = { # Accept
+		name = ddr.2.a
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				AUS = {
+					has_country_flag = protected_by_the_stresa_front_flag
+				}
+			}
+			modifier = {
+				factor = 0
+				AUS = {
+					is_in_faction_with = ITA
+				}
+			}
+			modifier = {
+				add = -25
+				DDR = { has_army_size = { size < 40 } }
+			}
+			modifier = {
+				add = 100
+				DDR = { has_army_size = { size > 39 } }
+			}
+		}
+		DDR = {
+			country_event = { hours = 2 id = ddr.3 }
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+	}
+	option = {
+		name = ddr.2.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				DDR = { has_army_size = { size > 39 } }
+				factor = 0.5
+			}
+			modifier = {
+				add = 20
+				DDR = { has_army_size = { size < 30 } }
+			}
+		}
+		DDR = {
+			add_opinion_modifier = { target = ROOT modifier = GER_anschluss_rejected }
+			country_event = { hours = 2 id = erwache.9 }
+			if = { limit = { is_in_faction_with = AUS }
+				remove_from_faction = AUS
+			}
+		}
+	}
+}
+country_event = {
+	id = ddr.3
+	title = ddr.3.t
+	desc = ddr.3.d
+	picture = GFX_report_event_german_speech
+
+	is_triggered_only = yes
+
+	option = {
+		name = ddr.3.a
+		4 = {
+			if = {
+				limit = { is_owned_by = AUS }
+				add_core_of = DDR
+			}
+		}
+		152 = {
+			if = {
+				limit = { is_owned_by = AUS }
+				add_core_of = DDR
+			}
+		}
+		153 = {
+			if = {
+				limit = { is_owned_by = AUS }
+				add_core_of = DDR
+			}
+		}
+
+		annex_country = { target = AUS transfer_troops = yes }
+		add_political_power = 75
+		add_named_threat = { threat = 10 name = ddr.3.t }
+		set_country_flag = AUS_annexed
+		AUS = {
+			every_unit_leader = {
+				limit = {
+					OR = {
+						has_id = 1224
+						has_id = 1226
+						has_id = 1227
+						has_id = 1228
+						has_id = 1234	
+					}
+					
+				}
+				set_nationality = DDR
+			}
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+				every_operative = {
+					turn_operative = { turned_by = DDR }
+					# ensure the operative has the nationality of the country he is coming from
+					add_nationality = DDR				
+				}				
+			}
+			if = {
+				limit = {
+					has_intelligence_agency = no
+				}
+				ROOT = {
+					create_operative_leader = {
+						name = "Albrecht von Auenrode"
+						portrait_path = gfx/leaders/Europe/portrait_europe_generic_operative_male_16.dds 
+						traits = { operative_infiltrator operative_master_interrogator }
+						bypass_recruitment = no
+						available_to_spy_master = yes
+						nationalities = { DDR FGR GER AUS }
+					}					
+				}
+			}
+		}
+	#	create_corps_commander = {
+	#		name = "Karl Eglseer"
+	#		portrait_path = "gfx/leaders/AUS/r56_portrait_AUS_karl_eglseer.dds"
+	#		traits = { trait_mountaineer trickster }
+	#		skill = 3
+	#		attack_skill = 2
+	#		defense_skill = 3
+	#		planning_skill = 3
+	#		logistics_skill = 2
+	#	}
+
+		news_event = { hours = 6 id = news.36 }
+	}
+}
+country_event = {
+	id = ddr.4
+	title = ddr.4.t
+	desc = ddr.4.d
+	picture = GFX_report_event_stalin_01
+
+	is_triggered_only = yes
+
+	option = { # Accept
+		name = ddr.4.a
+		ai_chance = {
+			base = 30
+			modifier = {
+		}
+		DDR = {
+			country_event = { hours = 2 id = ddr.5 }
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+	}
+	option = {
+		name = ddr.4.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		DDR = {
+			add_opinion_modifier = { target = ROOT modifier = }
+		}
+	}
+	country_event = {
+	id = ddr.5
+	title = ddr.5.t
+	desc = ddr.5.d
+	picture = GFX_report_event_stalin_01
+
+	is_triggered_only = yes
+
+	option = { # Accept
+		name = ddr.5.a
+		ai_chance = {
+			base = 30
+		}
+		DDR = {
+		}
+	}
+	option = { # Deny
+		name = ddr.5.b
+		ai_chance = {
+			base = 30
+		}
+		DDR = {
+			puppet = WGR
+		}
+		custom_effect_tooltip =  TEST_TEST
+	}
+}
+			
