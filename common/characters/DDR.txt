@@ -1,1 +1,166 @@
+characters={
+	DDR_erwin_von_witzleben={
+		name=DDR_erwin_von_witzleben
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Erwin_von_Witzleben.dds"
+				small="gfx/interface/ideas/idea_GER_erwin_von_witzleben.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=2
+		}
+	}
+	###politcal###
+	DDR_fritz_todt={
+		name=DDR_fritz_todt
+		portraits={
+			army={
+				small="GFX_idea_todt"
+			}
+			
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = todt
+			allowed = {
+				original_tag = DDR
+			}
+			traits = {
+				communist_revolutionary
+			}
 			ai_will_do = {
+				factor = 0.500
+			}
+		}
+	}
+	DDR_Wilhelm_Zaisser={
+		name=DDR_wilhelm_zaisser
+		portraits={
+			army={
+				small="GFX_idea_todt"
+			}
+			
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = todt
+			allowed = {
+				original_tag = DDR
+			}
+			traits = {
+				operative_commando
+				operative_safe_cracker
+
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	### STASI###
+	DDR_Wilhelm_Zaisser={
+		name=DDR_wilhelm_zaisser
+		portraits={
+			army={
+				small="GFX_idea_todt"
+			}
+			
+		}
+		advisor={
+			slot = political_advisor
+			allowed = {
+				original_tag = DDR
+			}
+			traits = {
+				prince_of_terror
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	###Economy n Finance###
+	DDR_Willy_Rumpf={
+		name=DDR_Willy_Rumpf
+		portraits={
+			army={
+				small="GFX_idea_todt"
+			}
+			
+		}
+		advisor={
+			slot = political_advisor
+			allowed = {
+				original_tag = DDR
+			}
+			traits = {
+				captain_of_industry
+				 
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	###GENERALS###
+	DDR_erich_von_manstein={
+		name=DDR_erich_von_manstein
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Erich_von_Manstein.dds"
+				small="GFX_idea_manstein"
+			}
+		}
+		advisor={
+			cost = 150
+			slot = theorist
+			idea_token = manstein
+			ledger = army
+			allowed = {
+				original_tag = DDR
+			}
+			traits = {
+				mobile_warfare_expert
+			}
+		}
+		
+		corps_commander={
+			traits={ brilliant_strategist armor_officer trickster trait_engineer }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=5
+		}
+	}
+	###HIGH COMMAND###
+	DDR_erwin_rommel={
+		name=DDR_erwin_rommel
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Erwin_Rommel.dds"
+				small="GFX_idea_erwin_rommel"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = erwin_rommel
+			ledger = army
+			allowed = {
+				original_tag = DDR
+			}
+			traits = {
+				army_armored_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 8.000
+			}
+		}
+}
