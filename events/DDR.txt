@@ -241,7 +241,8 @@ country_event = {
 		name = ddr.4.a
 		ai_chance = {
 			base = 30
-			modifier = {
+			#modifier = {
+			#}
 		}
 		DDR = {
 			country_event = { hours = 2 id = ddr.5 }
@@ -261,7 +262,8 @@ country_event = {
 			add_opinion_modifier = { target = ROOT modifier = }
 		}
 	}
-	country_event = {
+}
+country_event = {
 	id = ddr.5
 	title = ddr.5.t
 	desc = ddr.5.d

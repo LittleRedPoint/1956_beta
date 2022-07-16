@@ -1,15 +1,15 @@
 focus_tree = {
-	id = german_focus
+	id = east_german_focus
 	country = {
 		factor = 0
 		modifier = {
 			add = 10
 			tag = DDR
 		}
-		modifier = {
-			add = -20
-			has_global_flag = GER_use_standard_tree
-		}
+		# modifier = {
+		# 	add = -20
+		# 	has_global_flag = GER_use_standard_tree
+		# }
 	}
 	default = no
 	continuous_focus_position = { x = 500 y = 2800 }
