@@ -402,8 +402,8 @@
 
 
  ####################### FOCUSES ########################
- PRC_recover_from_the_long_march:0 "Recover From The Long March"
- PRC_recover_from_the_long_march_desc:0 "The Long March has cost us greatly, we must start recovering before the Kuomintang use this as an opportunity!"
+ PRC_recover_from_the_long_march:0 "Recover From the Long March"
+ PRC_recover_from_the_long_march_desc:0 "The Long March has cost us greatly, we must start recovering before the Kuomintang see this as an opportunity to strike us down!"
 
  PRC_anti_japanese_aim:0 "Anti-Japanese Aim"
  PRC_anti_japanese_aim_desc:0 "The Japanese invaders are at our doorstep, we must focus on preparing a defense strategy against them."
@@ -507,8 +507,8 @@
  PRC_tbos:0 "TBOS"
  PRC_tbos_desc:0 "TBOS, acronym for Two Bombs One Star(Satellite), is our nation's first plan to expand our reach to the sky and event the space."
 
- PRC_establish_navy:0 "Establish People's Liberation Navy"
- PRC_establish_navy_desc:0 "Although we have ships, but we lack a official organized navy."
+ PRC_establish_navy:0 "Establish the People's Liberation Navy"
+ PRC_establish_navy_desc:0 "Although we now have a navy, we lack any proper naval doctrine. It's time we did something about that!"
 
  PRC_the_red_pacific:0 "Red Pacific"
  PRC_the_red_pacific_desc:0 "We will spread communism across the Pacific!"
@@ -531,7 +531,7 @@
  PRC_sov_cooperation:0 "Soviet Cooperation"
  PRC_sov_cooperation_desc:0 "Soviet Union is undoubtedly the most powerful communism nation in the world, we have so much that can learn from them."
 
- PRC_the_new_communism_beacon:0 "The New Communism Beacon"
+ PRC_the_new_communism_beacon:0 "The New Communist Beacon"
  PRC_the_new_communism_beacon_desc:0 "Soviet Union is now infested with revisionists that strayed away from the path of Karl Marx, we will not follow such rotten structure."
 
  PRC_anti_soviet_revisionist_aim:0 "Anti-Soviet-Revisionism Aim"
@@ -545,8 +545,8 @@
  PRC_liberate_tibet:0 "Liberate Tibet"
  PRC_liberate_tibet_desc:0 "Tibet has long since been tricked to leave the Chinese family, now we must liberate them from the capitalist that contaminated their mind."
 
- PRC_establish_air_force:0 "Establish People's Liberation Air Force"
- PRC_establish_air_force_desc:0 "With foreign helps, we can establish a proper air force."
+ PRC_establish_air_force:0 "Establish the People's Liberation Air Force"
+ PRC_establish_air_force_desc:0 "With a fledgling air force taking shape, we must develop doctrine to guide it along."
 
  PRC_fighter_focus:0 "Fighter Focus"
  PRC_fighter_focus_desc:0 "We have not seen that last of dogfights in the Great War. Keeping ahead in the development of fighter planes will give us an edge in the future."
@@ -620,8 +620,8 @@
  PRC_form_the_grand_northwest_united:0 "The Northwest National Defense Government"
  PRC_form_the_grand_northwest_united_desc:0 "With almost everything decided and Gansu secured, we can now make the plan of the "Grand Northwest Union" a reality."
 
- PRC_unite_against_the_jap:0 "Unite Against Japanese"
- PRC_unite_against_the_jap_desc:0 "Together we stand, divided we fall."
+ PRC_unite_against_the_jap:0 "Unite Against the Japanese"
+ PRC_unite_against_the_jap_desc:0 "While the NRA isn't particularly well organized right now, we stand a better chance of fighting off the invaders if we stand together as brothers in arms."
 
  PRC_destroy_mao_and_his_clique:0 "Destroy The Communists"
  PRC_destroy_mao_and_his_clique_desc:0 "Although as the head of a government crowded with communists, Zhang still think that only fascism is the only salvation for China. To fulfill the fascist idea, the communists must be eradicated."
@@ -651,7 +651,7 @@
  PRC_incorporate_xbj_desc:0 "Yang Hucheng's Xibei Army has been supportive to Zhang's plan. We could use some more men for the upcoming war."
 
  PRC_fight_alone:0 "Lone Wolf"
- PRC_fight_alone_desc:0 "Knowing the incompetence of the NRA, fighting alongside them would only pull our leg. Thus, we must fight the Japanese alone. That way, we would have a much greater chance at winning."
+ PRC_fight_alone_desc:0 "The NRA is an incompetent organization, and fighting alongside them would only take us down with them. If we are to fight the Japanese effectively, we must go it alone."
 
  PRC_military_knowledge_exchange:0 "Military Knowledge Exchange"
  PRC_military_knowledge_exchange_desc:0 "Both the NRA's and our tactics have some flaws in them. By exchanging military officials, our tactics could be greatly improved and the combined might of the two of us can chase the Japanese out of our land for sure."
@@ -659,8 +659,8 @@
  PRC_study_kmt_equipment:0 "Study NRA Equipment"
  PRC_study_kmt_equipment_desc:0 "Although not of top-notch quality, the NRA's equipment is still better than most of our forces. Studying them would increase our knowledge in small arms."
 
- PRC_apologise_to_sov:0 "Apologize To Soviet"
- PRC_apologise_to_sov_desc:0 "Despite our disobedience towards Soviet order for establishing a new government, we are now in a united front with the KMT after all. The Soviet officials surely can overlook this minor "misbehave" of ours..."
+ PRC_apologise_to_sov:0 "Apologize to the Soviets"
+ PRC_apologise_to_sov_desc:0 "Despite our disobedience towards the Soviet's order for establishing a new government, we are now in a united front with the KMT after all. The Soviet officials surely can overlook this minor "misbehave" of ours..."
 
  PRC_pressure_prince_dem:0 "Pressure Chahar Government"
  PRC_pressure_prince_dem_desc:0 "The Japanese puppet in Chahar is looser than we have expected. We could use some bribes and offer benefits to them, this way we could deal with them without bloodshed. If these actions prove to be not enough, then..."
@@ -725,8 +725,8 @@
  PRC_invest_in_new_companies:0 "Invest In New Companies"
  PRC_invest_in_new_companies_desc:0 "There are only a handful of domestic companies in our nation. We should consider investing in new companies to increase our nation's competitiveness world-wide."
 
- PRC_assistance_in_naval_industry:0 "Request Soviet Assistance In Naval Industry"
- PRC_assistance_in_naval_industry_desc:0 "With our friend's strong naval industry capacity, we can request their assistance in ours as well."
+ PRC_assistance_in_naval_industry:0 "Request Soviet Naval Assistance"
+ PRC_assistance_in_naval_industry_desc:0 "With the strength of the Soviet's naval industry, they will be able to provide us with the necessary help to establish our own naval industry!"
 
  PRC_study_soviet_ships:0 "Study Soviet Ships"
  PRC_study_soviet_ships_desc:0 "Studying foreign designs will shed some light on our engineers on shipbuilding technology."
