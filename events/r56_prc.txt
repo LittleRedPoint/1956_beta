@@ -1053,20 +1053,20 @@ country_event = {
 			}
 		}
 		XSM = {
-			surrender_progress < 0.25
+			surrender_progress < 0.20
 		}
 	}
 
-	mean_time_to_happen = { days = 120 }
+	mean_time_to_happen = { days = 180 }
 
 	option = {
-		ai_chance = { factor = 50 }
+		ai_chance = { factor = 35 }
 		name = prc.24.a
 		white_peace = XSM
 	}
 
 	option = {
-		ai_chance = { factor = 50 }
+		ai_chance = { factor = 65 }
 		name = prc.24.b
 	}
 }
