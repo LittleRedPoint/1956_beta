@@ -26397,7 +26397,7 @@ focus = {
 		}
 
 		available = {
-			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
+			#NOT = { has_country_flag = SOV_paranoia_system_active_flag }
 			hidden_trigger = {
 				is_ai = no
 			}
@@ -26517,11 +26517,11 @@ focus = {
 		id = SOV_found_the_comecon
 
 		icon = GFX_focus_SOV_the_comecon
-		prerequisite = { focus = SOV_sino_soviet_treaty }
-		prerequisite = { focus = SOV_interest_in_cuba }
-		prerequisite = { focus = SOV_facilitate_a_balkan_federation focus = SOV_take_out_tito focus = SOV_overthrow_weak_king }
-		x = 0
-		y = 3
+		prerequisite = {
+			focus = SOV_iron_curtain
+		}
+		x = 3
+		y = 1
 		relative_position_id = SOV_iron_curtain
 		cost = 10
 
@@ -26610,10 +26610,10 @@ focus = {
 	focus = {
 		id = SOV_expand_western_spy_rings
 		icon = GFX_goal_generic_communist_officer
-		prerequisite = { focus = SOV_iron_curtain }
-		x = 0
+		prerequisite = { focus = SOV_a_cold_war }
+		x = 1
 		y = 1
-		relative_position_id = SOV_iron_curtain
+		relative_position_id = SOV_a_cold_war
 
 		cost = 10
 
@@ -26663,10 +26663,10 @@ focus = {
 	focus = {
 		id = SOV_incite_a_greek_revolution
 		icon = GFX_focus_renounce_the_treaty_of_trianon
-		prerequisite = { focus = SOV_iron_curtain }
-		x = 4
+		prerequisite = { focus = SOV_extend_the_curtain_outwards }
+		x = -4
 		y = 1
-		relative_position_id = SOV_iron_curtain
+		relative_position_id = SOV_extend_the_curtain_outwards
 
 		cost = 10
 
@@ -26703,7 +26703,7 @@ focus = {
 				type = puppet_wargoal_focus
 				target = GRE
 			}
-
+			add_threat = 10
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 	}
@@ -26713,7 +26713,7 @@ focus = {
 		icon = GFX_goal_BUL_divide_yugoslavia
 		prerequisite = { focus = SOV_incite_a_greek_revolution }
 		mutually_exclusive = { focus = SOV_facilitate_a_balkan_federation focus = SOV_take_out_tito }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = SOV_incite_a_greek_revolution
 		cost = 10
@@ -26762,9 +26762,9 @@ focus = {
 	focus = {
 		id = SOV_take_out_tito
 		icon = GFX_goal_sov_kill_tito
-		prerequisite = { focus = SOV_incite_a_greek_revolution }
+		prerequisite = { focus = SOV_incite_a_greek_revolution focus = SOV_expand_western_spy_rings }
 		mutually_exclusive = { focus = SOV_facilitate_a_balkan_federation focus = SOV_overthrow_weak_king }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = SOV_incite_a_greek_revolution
 
@@ -26820,9 +26820,9 @@ focus = {
 	focus = {
 		id = SOV_facilitate_a_balkan_federation
 		icon = GFX_focus_GRE_red_greece
-		prerequisite = { focus = SOV_incite_a_greek_revolution }
+		prerequisite = { focus = SOV_incite_a_greek_revolution focus = SOV_expand_western_spy_rings }
 		mutually_exclusive = { focus = SOV_take_out_tito focus = SOV_overthrow_weak_king  }
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = SOV_incite_a_greek_revolution
 
@@ -26839,22 +26839,11 @@ focus = {
 					target = SOV
 					value > 59
 				}
+				is_in_faction_with = SOV
 				has_government = communism
 			}
 			BUL = {
-				is_in_faction_with = SOV
-				is_puppet_of = SOV
-			}
-			ROM = {
-				is_in_faction_with = SOV
-				is_puppet_of = SOV
-			}
-			GRE = {
-				is_in_faction_with = SOV
-				is_puppet_of = SOV
-			}
-			ALB = {
-				is_in_faction_with = SOV
+				#is_in_faction_with = SOV
 				is_puppet_of = SOV
 			}
 		}
@@ -26878,10 +26867,10 @@ focus = {
 	focus = {
 		id = SOV_return_dalian
 		icon = GFX_goal_generic_foreign_diplomacy
-		prerequisite = { focus = SOV_iron_curtain }
-		x = -3
-		y = 1
-		relative_position_id = SOV_iron_curtain
+		prerequisite = { focus = SOV_incite_a_greek_revolution focus = SOV_expand_western_spy_rings }
+		x = 1
+		y = 2
+		relative_position_id = SOV_extend_the_curtain_outwards
 
 		cost = 5
 
@@ -27048,7 +27037,7 @@ focus = {
 	focus = {
 		id = SOV_interest_in_cuba
 		icon = GFX_goal_sov_communist_cuba
-		prerequisite = { focus = SOV_expand_western_spy_rings }
+		prerequisite = { focus = SOV_expand_western_spy_rings focus = SOV_incite_a_greek_revolution }
 		x = 0
 		y = 1
 		relative_position_id = SOV_expand_western_spy_rings
@@ -27112,11 +27101,11 @@ focus = {
 	focus = {
 		id = SOV_a_cold_war
 		icon = GFX_goal_generic_cold_war
-		prerequisite = { focus = SOV_found_the_comecon }
+		prerequisite = { focus = SOV_iron_curtain }
 		mutually_exclusive = { focus = SOV_extend_the_curtain_outwards }
 		x = 1
 		y = 1
-		relative_position_id = SOV_found_the_comecon
+		relative_position_id = SOV_iron_curtain
 
 		cost = 6
 
@@ -27142,13 +27131,13 @@ focus = {
 	focus = {
 		id = SOV_extend_the_curtain_outwards
 		icon = GFX_goal_sov_east_vs_west
-		prerequisite = { focus = SOV_found_the_comecon }
+		prerequisite = { focus = SOV_iron_curtain }
 		mutually_exclusive = { focus = SOV_a_cold_war }
 		x = -1
 		y = 1
-		relative_position_id = SOV_found_the_comecon
+		relative_position_id = SOV_iron_curtain
 
-		cost = 10
+		cost = 6
 
 		available = {
 			is_faction_leader = yes
@@ -27215,14 +27204,10 @@ focus = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = sov_hot_war_tt
+			#custom_effect_tooltip = sov_hot_war_tt
 			every_other_country = {
 				limit = {
 					OR ={
-						AND = {
-							is_major = yes
-							num_of_factories > 100
-						}
 						is_neighbor_of = ROOT
 					}
 					has_government = democratic

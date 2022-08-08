@@ -1446,41 +1446,18 @@ country_event = {
 	option = {
 		name = r56.soviet.99.a
 		YUG = {
-			annex_country = {
-				target = BUL
-				transfer_troops = yes
-			}
-			annex_country = {
-				target = ROM
-				transfer_troops = yes
-			}
-			annex_country = {
-				target = GRE
-				transfer_troops = yes
-			}
-			annex_country = {
-				target = ALB
-				transfer_troops = yes
-			}
-		}
-		hidden_effect = {	#not so much pain please
-			every_controlled_state = {
-				limit = {
-					OR = {
-						is_core_of = BUL
-						is_core_of = ROM
-						is_core_of = GRE
-						is_core_of = ALB
-						is_core_of = YUG
-					}
-					has_resistance = yes
+			BUL = {
+				every_core_state = {
+					add_core_of = YUG
 				}
-				add_compliance = 40
+			}
+			annex_country = {
+				target = THIS
+				transfer_troops = yes
 			}
 		}
-		add_stability = -0.15
-		add_threat = 15
-		SOV = { add_to_faction = YUG }
+		add_stability = -0.05
+		add_threat = 4
 	}
 
 }
