@@ -21,6 +21,7 @@ focus_tree = {
 		icon = GFX_goal_flag_hungary
 		
 	 	prerequisite = { }
+		mutually_exclusive = { focus = HUN_the_arrow_cross_party }
 		
 		x = 0
 		y = 0
@@ -88,7 +89,7 @@ focus_tree = {
 		id = HUN_prepare_for_a_one_party_state
 		icon = GFX_goal_flag_hungary
 		
-	 	prerequisite = { focus = HUN_gombos_hungary }	
+	 	prerequisite = { focus = HUN_gombos_hungary focus = HUN_ferenc_szalasis_hungary }	
 		
 		x = 3
 		y = 1
@@ -108,7 +109,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = HUN_german_trade_agreement
+		id = HUN_friendship_pact_with_italy
 		icon = GFX_goal_flag_hungary
 		
 	 	prerequisite = { focus = HUN_prepare_for_a_one_party_state }	
@@ -131,7 +132,7 @@ focus_tree = {
 		}
 	}	
 	focus = {
-		id = HUN_friendship_pact_with_italy
+		id = HUN_german_trade_agreement
 		icon = GFX_goal_flag_hungary
 		
 	 	prerequisite = { focus = HUN_prepare_for_a_one_party_state }	
@@ -152,14 +153,14 @@ focus_tree = {
 		
 		completion_reward = {
 		}
-	}
+	}	
 	focus = {
 		id = HUN_axis_based_imports
 		icon = GFX_goal_flag_hungary
 		
 	 	prerequisite = { focus = HUN_german_trade_agreement focus = HUN_friendship_pact_with_italy }			
 		
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = HUN_german_trade_agreement
 
@@ -252,7 +253,7 @@ focus_tree = {
 	 	prerequisite = { focus = HUN_gather_foreign_support }	
 		
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = HUN_gather_foreign_support
 
 		cost = 10
@@ -274,7 +275,7 @@ focus_tree = {
 		
 	 	prerequisite = { focus = HUN_gather_foreign_support }	
 		
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = HUN_gather_foreign_support
 
@@ -297,7 +298,7 @@ focus_tree = {
 		
 	 	prerequisite = { focus = HUN_gather_foreign_support }	
 		
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = HUN_gather_foreign_support
 
@@ -313,5 +314,52 @@ focus_tree = {
 		
 		completion_reward = {
 		}
-	}													
+	}
+	focus = {
+		id = HUN_the_arrow_cross_party
+		icon = GFX_goal_flag_hungary
+		
+	 	prerequisite = { }	
+		mutually_exclusive = { focus = HUN_the_unity_party }
+
+		x = 7
+		y = 0
+		relative_position_id = HUN_the_unity_party
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_ferenc_szalasis_hungary
+		icon = GFX_goal_flag_hungary
+		
+	 	prerequisite = { focus = HUN_the_arrow_cross_party }	
+		
+		x = 0
+		y = 1
+		relative_position_id = HUN_the_arrow_cross_party
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}															
 }
