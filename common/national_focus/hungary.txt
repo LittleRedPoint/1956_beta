@@ -21,7 +21,7 @@ focus_tree = {
 		icon = GFX_goal_flag_hungary
 		
 	 	prerequisite = { }
-		mutually_exclusive = { focus = HUN_the_arrow_cross_party }
+		mutually_exclusive = { focus = HUN_the_party_of_national_will }
 		
 		x = 0
 		y = 0
@@ -316,7 +316,53 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = HUN_the_arrow_cross_party
+		id = HUN_denounce_the_little_entente
+		icon = GFX_goal_flag_hungary
+		
+	 	prerequisite = { focus = HUN_friendship_pact_with_italy focus = HUN_german_trade_agreement }	
+		
+		x = 1
+		y = 2
+		relative_position_id = HUN_friendship_pact_with_italy
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_the_bled_agreement
+		icon = GFX_goal_flag_hungary
+		
+	 	prerequisite = { focus = HUN_friendship_pact_with_italy focus = HUN_german_trade_agreement }	
+		
+		x = 0
+		y = 1
+		relative_position_id = HUN_friendship_pact_with_italy
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}			
+	focus = {
+		id = HUN_the_party_of_national_will
 		icon = GFX_goal_flag_hungary
 		
 	 	prerequisite = { }	
@@ -343,11 +389,11 @@ focus_tree = {
 		id = HUN_ferenc_szalasis_hungary
 		icon = GFX_goal_flag_hungary
 		
-	 	prerequisite = { focus = HUN_the_arrow_cross_party }	
+	 	prerequisite = { focus = HUN_the_party_of_national_will }	
 		
 		x = 0
 		y = 1
-		relative_position_id = HUN_the_arrow_cross_party
+		relative_position_id = HUN_the_party_of_national_will
 
 		cost = 10
 		
@@ -361,5 +407,6 @@ focus_tree = {
 		
 		completion_reward = {
 		}
-	}															
+	}
+																
 }
