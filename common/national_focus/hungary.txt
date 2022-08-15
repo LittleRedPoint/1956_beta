@@ -160,7 +160,7 @@ focus_tree = {
 		
 	 	prerequisite = { focus = HUN_german_trade_agreement focus = HUN_friendship_pact_with_italy }			
 		
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = HUN_german_trade_agreement
 
@@ -344,7 +344,7 @@ focus_tree = {
 		
 	 	prerequisite = { focus = HUN_friendship_pact_with_italy focus = HUN_german_trade_agreement }	
 		
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = HUN_friendship_pact_with_italy
 
@@ -360,7 +360,78 @@ focus_tree = {
 		
 		completion_reward = {
 		}
-	}			
+	}
+	focus = {
+		id = HUN_official_axis_membership
+		icon = GFX_goal_flag_hungary
+		
+	 	prerequisite = { focus = HUN_denounce_the_little_entente }	
+		mutually_exclusive = { focus = HUN_solidify_the_rome_protocols }
+
+		x = 1
+		y = 1
+		relative_position_id = HUN_denounce_the_little_entente
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_solidify_the_rome_protocols
+		icon = GFX_goal_flag_hungary
+		
+	 	prerequisite = { focus = HUN_denounce_the_little_entente }	
+		mutually_exclusive = { focus = HUN_official_axis_membership }
+
+		x = -1
+		y = 1
+		relative_position_id = HUN_denounce_the_little_entente
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_abandon_the_trianon_treaty
+		icon = GFX_goal_flag_hungary
+		
+	 	prerequisite = { focus = HUN_solidify_the_rome_protocols focus = HUN_official_axis_membership }	
+		
+		x = 1
+		y = 1
+		relative_position_id = HUN_solidify_the_rome_protocols
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}						
 	focus = {
 		id = HUN_the_party_of_national_will
 		icon = GFX_goal_flag_hungary
