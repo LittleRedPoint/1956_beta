@@ -37,6 +37,12 @@ focus_tree = {
 
 		
 		completion_reward = {
+			set_party_name = {
+				ideology = neutrality
+				name = "Egységes Párt"
+				long_name = "Nemzeti Egység Pártja"
+			}
+			add_ideas = HUN_fascist_leanings			
 		}
 	}
 	focus = {
