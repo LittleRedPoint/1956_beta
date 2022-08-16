@@ -228,6 +228,28 @@ focus_tree = {
 
 		
 		completion_reward = {
+			hidden_effect = {
+				# Slovakia 
+				664 = { add_claim_by = HUN }
+				70 = { add_claim_by = HUN }
+				71 = { add_claim_by = HUN }
+				73 = { add_claim_by = HUN }
+				# Transylvania
+				76 = { add_claim_by = HUN }
+				82 = { add_claim_by = HUN }
+				83 = { add_claim_by = HUN }
+				84 = { add_claim_by = HUN }
+				# Vojvodnia and upper Croatia
+				764 = { add_claim_by = HUN }
+				45 = { add_claim_by = HUN }
+				880 = { add_claim_by = HUN }
+				887 = { add_claim_by = HUN }
+				884 = { add_claim_by = HUN }
+				109 = { add_claim_by = HUN }
+				102 = { add_claim_by = HUN }
+				886 = { add_claim_by = HUN }
+			}
+			custom_effect_tooltip = HUN_denounce_the_territorial_loss_tt
 		}
 	}
 	focus = {
@@ -278,7 +300,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_return_of_vojvodina
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_generic_attack_yugoslavia
 		
 	 	prerequisite = { focus = HUN_gather_foreign_support }	
 		
@@ -301,7 +323,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_the_transylvanian_transgression
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_strike_romania
 		
 	 	prerequisite = { focus = HUN_gather_foreign_support }	
 		

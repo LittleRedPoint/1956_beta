@@ -9,6 +9,7 @@ HUN_fascist_leanings:0 "Fascist Leanings"
 ### Tooltips
 HUN_treaty_of_trianon_tooltip_conscription_tt:0 "§RCan not change§! §YConscription§! §Rlaw§!"
 HUN_treaty_of_trianon_tooltip_economy_tt:0 "§RCan not change§! §YEconomy§! §RLaw§!"
+HUN_denounce_the_territorial_loss_tt:0 "Gain claims on former §YUpper Hungary§!, §YTransylvania§!, §YVojvodina§! and §YUpper Croatia§!"
 
 ### Historical Focuses
 HUN_the_unity_party:0 "The Unity Party"
