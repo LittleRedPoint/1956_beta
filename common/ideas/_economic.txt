@@ -105,7 +105,7 @@ ideas = {
 					}
 					OR = {
 						has_completed_focus = HUN_secret_rearmament
-						NOT = { has_idea = HUN_treaty_of_triannon }
+						NOT = { has_idea = HUN_the_treaty_of_trianon_1 }
 					}
 				}
 				if = {
@@ -171,7 +171,7 @@ ideas = {
 						original_tag = HUN
 						has_dlc = "Death or Dishonor"
 					}
-					NOT = { has_idea = HUN_treaty_of_triannon }
+					NOT = { has_idea = HUN_the_treaty_of_trianon_1 }
 				}
 				if = {
 					limit = {
@@ -241,7 +241,7 @@ ideas = {
 						original_tag = HUN
 						has_dlc = "Death or Dishonor"
 					}
-					NOT = { has_idea = HUN_treaty_of_triannon }
+					NOT = { has_idea = HUN_the_treaty_of_trianon_1 }
 				}
 				if = {
 					limit = {
@@ -311,7 +311,7 @@ ideas = {
 						original_tag = HUN
 						has_dlc = "Death or Dishonor"
 					}
-					NOT = { has_idea = HUN_treaty_of_triannon }
+					NOT = { has_idea = HUN_the_treaty_of_trianon_1 }
 				}
 				if = {
 					limit = {
