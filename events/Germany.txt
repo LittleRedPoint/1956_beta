@@ -12803,220 +12803,17 @@ country_event = { #Germany civil war
 
 	immediate = {
 		hidden_effect={
+			#first part sets up the nazis
 			random_country = {
 				limit = {
 					original_tag = GER
 					NOT = {
 						tag = GER
 					}
-					has_government = communism
+					has_government = fascism
 				}
-				save_event_target_as = communist_germany
-			}
-			random_country = {
-				limit = {
-					original_tag = GER
-					NOT = {
-						tag = GER
-					}
-					has_government = democratic
-				}
-				save_event_target_as = conservative_germany
-			}
-			every_character = {
-				limit = {
-					OR = {
-						is_character = GER_ernst_thalmann
-						is_character = GER_Walter_Ulbricht
-						is_character = GER_franz_jacob
-						is_character = GER_Franz_Dahlem
-						is_character = GER_Bernhard_Bastlein
-					}
-				}
-				set_nationality = event_target:communist_germany
-			}
-			every_character = { #move over advisors and leaders
-				limit = {
-					OR = {
-						is_advisor = yes
-						is_unit_leader = yes
-						is_character = GER_konrad_adenauer
-					}
-					NOT = {
-						is_character = GER_rudolf_hess
-						is_character = GER_martin_bormann
-						is_character = GER_joseph_goebbels
-						is_character = GER_wilhelm_keitel
-						is_character = GER_heinrich_himmler
-						is_character = GER_hermann_goring
-						is_character = GER_joachim_von_ribbentrop
-						is_character = GER_fritz_todt
-						is_character = GER_albert_speer
-						is_character = GER_werner_von_fritsch #despite the Blomberg–Fritsch affair, he seemingly didnt stop supporting anti-democratic and nazi ideals
-						is_character = GER_ferdinand_schorner
-						has_id = 10 #Walter Model
-						has_id = 15 #Walter Kruger
-						has_id = 20 #Paul Hausser
-						has_id = 24 #Sepp Dietrich
-					}
-				}
-				set_nationality = event_target:conservative_germany
-			}
-			event_target:conservative_germany = {
-				GER_erwin_von_witzleben = {
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-						  	ideology = conservatism
-						  	expire = "1942.1.1.1" #health
-						  	traits = {  }
-						}
-					}
-				}
-				division_template = {
-					name = "Landsturmregiment"
-					is_locked = yes
-				
-					division_names_group = GER_Inf_01
-				
-					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 0 y = 3 }
-					}
-					support = { 
-						engineer = { x = 0 y = 0 }
-					}
-				}
-				every_controlled_state = {
-					limit = {
-						OR = {
-							state = 67 #Poland enclave
-							state = 54 #East
-							state = 848 #Upper
-							state = 849 #Center
-						}
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Landsturmregiment\" start_experience_factor = 0.05"
-						owner = PREV
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Landsturmregiment\" start_experience_factor = 0.05"
-						owner = PREV
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Landsturmregiment\" start_experience_factor = 0.05"
-						owner = PREV
-					}
-				}
-			}
-			event_target:communist_germany = {
-				add_command_power = 50
-				#Thalmann was imprisoned in the communist area, make him leader here and fire an event about him being freed if communists are chosen
-				GER_ernst_thalmann = {
-					promote_character = yes
-					promote_character = stalinism
-				}
-				add_equipment_to_stockpile = { #buff to compensate for lack of industry, 5-divisions worth
-					type = infantry_equipment
-					amount = 5000
-					producer = GER
-				}
-				division_template = {
-					name = "Rotesregiment"
-					is_locked = yes
-				
-					division_names_group = GER_Inf_01
-				
-					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 0 y = 3 }
-					}
-					support = { 
-						engineer = { x = 0 y = 0 }
-					}
-				}
-				every_controlled_state = { #16 weak units in stronghold
-					limit = {
-						OR = {
-							state = 60
-							state = 65
-						}
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
-						owner = PREV
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
-						owner = PREV
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
-						owner = PREV
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
-						owner = PREV
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
-						owner = PREV
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
-						owner = PREV
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
-						owner = PREV
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
-						owner = PREV
-					}
-				}
-				every_state = { #8 divisions in contested areas
-					limit = {
-						OR = {
-							state = 59
-							state = 64
-						}
-					}
-					create_unit = {
-						division = "name = \"Hamburger Rotes Regiment\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
-						owner = PREV
-						allow_spawning_on_enemy_provs = no
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
-						owner = PREV
-						allow_spawning_on_enemy_provs = no
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
-						owner = PREV
-						allow_spawning_on_enemy_provs = no
-					}
-					create_unit = {
-						division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
-						owner = PREV
-						allow_spawning_on_enemy_provs = no
-					}
-				}
-			}
-			###heres your starting designs now stop annoying me about debug mode not saying your tag is GER
-			every_country = {
-				limit = {
-					OR = {
-						tag = event_target:communist_germany
-						tag = event_target:conservative_germany
-					}
-				}
+				save_event_target_as = nazi_germany
+				#give starting designs to not nerf AI too much if they win
 				if = {
 					limit = {
 						not = { has_dlc = "Man the Guns" }
@@ -13501,27 +13298,195 @@ country_event = { #Germany civil war
 						icon = "gfx/interface/technologies/ger_imp_light_tank.dds"
 					}
 				}
+				every_character = { #move over nazi advisors and leaders
+					limit = {
+						OR = {
+							is_character = GER_rudolf_hess
+							is_character = GER_martin_bormann
+							is_character = GER_joseph_goebbels
+							is_character = GER_wilhelm_keitel
+							is_character = GER_heinrich_himmler
+							is_character = GER_hermann_goring
+							is_character = GER_joachim_von_ribbentrop
+							is_character = GER_fritz_todt
+							is_character = GER_albert_speer
+							is_character = GER_werner_von_fritsch #despite the Blomberg–Fritsch affair, he seemingly didnt stop supporting anti-democratic and nazi ideals
+							is_character = GER_ferdinand_schorner
+							has_id = 10 #Walter Model
+							has_id = 15 #Walter Kruger
+							has_id = 20 #Paul Hausser
+							has_id = 24 #Sepp Dietrich
+						}
+					}
+					set_nationality = PREV
+				}
+				division_template = {
+					name = "SS-Sturmbrigade"
+					is_locked = yes
+				
+					division_names_group = GER_Inf_01
+				
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+					}
+					support = { 
+						engineer = { x = 0 y = 0 }
+					}
+				}
+				every_controlled_state = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.05"
+						owner = PREV
+						allow_spawning_on_enemy_provs = no
+					}
+				}
 			}
-		}
-	}
-
-	#Unit handling NEEDS to be in options or the player can disband the fascist army before switching
-	option = { #Democrats
-		name = r56.ger.25.a
-		hidden_effect = {
+			#ROOT transfers some army to nazis
 			transfer_units_fraction= {
-				target = event_target:communist_germany
-				size = 0.2
-				stockpile_ratio = 0.2 #bit of raiding
-				army_ratio = 0.15
-				navy_ratio = 0.1 #no majorities in naval regions
-				air_ratio = 0.05
+				target = event_target:nazi_germany
+				size = 0.4
+				stockpile_ratio = 0.4
+				army_ratio = 0.4
+				navy_ratio = 0.6 #Nazis able to keep naval regions under control
+				air_ratio = 0.6 #Id imagine airforce largely stationed in their land
 				keep_unit_leaders_trigger = {
 					always = yes 
 				}
 			}
+			# event_target:conservative_germany = {
+			# }
+			# event_target:communist_germany = {
+			# 	add_command_power = 50
+			# 	#Thalmann was imprisoned in the communist area, make him leader here and fire an event about him being freed if communists are chosen
+			# 	GER_ernst_thalmann = {
+			# 		promote_character = yes
+			# 		promote_character = stalinism
+			# 	}
+			# 	add_equipment_to_stockpile = { #buff to compensate for lack of industry, 5-divisions worth
+			# 		type = infantry_equipment
+			# 		amount = 5000
+			# 		producer = GER
+			# 	}
+			# 	division_template = {
+			# 		name = "Rotesregiment"
+			# 		is_locked = yes
+				
+			# 		division_names_group = GER_Inf_01
+				
+			# 		regiments = {
+			# 			infantry = { x = 0 y = 0 }
+			# 			infantry = { x = 0 y = 1 }
+			# 			infantry = { x = 0 y = 2 }
+			# 			infantry = { x = 0 y = 3 }
+			# 		}
+			# 		support = { 
+			# 			engineer = { x = 0 y = 0 }
+			# 		}
+			# 	}
+			# 	every_controlled_state = { #16 weak units in stronghold
+			# 		limit = {
+			# 			OR = {
+			# 				state = 60
+			# 				state = 65
+			# 			}
+			# 		}
+			# 		create_unit = {
+			# 			division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
+			# 			owner = PREV
+			# 		}
+			# 		create_unit = {
+			# 			division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
+			# 			owner = PREV
+			# 		}
+			# 		create_unit = {
+			# 			division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
+			# 			owner = PREV
+			# 		}
+			# 		create_unit = {
+			# 			division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
+			# 			owner = PREV
+			# 		}
+			# 		create_unit = {
+			# 			division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
+			# 			owner = PREV
+			# 		}
+			# 		create_unit = {
+			# 			division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
+			# 			owner = PREV
+			# 		}
+			# 		create_unit = {
+			# 			division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
+			# 			owner = PREV
+			# 		}
+			# 		create_unit = {
+			# 			division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
+			# 			owner = PREV
+			# 		}
+			# 	}
+			# 	every_state = { #8 divisions in contested areas
+			# 		limit = {
+			# 			OR = {
+			# 				state = 59
+			# 				state = 64
+			# 			}
+			# 		}
+			# 		create_unit = {
+			# 			division = "name = \"Hamburger Rotes Regiment\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
+			# 			owner = PREV
+			# 			allow_spawning_on_enemy_provs = no
+			# 		}
+			# 		create_unit = {
+			# 			division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
+			# 			owner = PREV
+			# 			allow_spawning_on_enemy_provs = no
+			# 		}
+			# 		create_unit = {
+			# 			division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
+			# 			owner = PREV
+			# 			allow_spawning_on_enemy_provs = no
+			# 		}
+			# 		create_unit = {
+			# 			division = "name = \"Infantry Division\" division_template = \"Rotesregiment\" start_experience_factor = 0.05"
+			# 			owner = PREV
+			# 			allow_spawning_on_enemy_provs = no
+			# 		}
+			# 	}
+			# }
+		}
+	}
+
+	option = { #Democrats
+		name = r56.ger.25.a
+		hidden_effect = {
+			complete_national_focus = GER_restore_weimar  #no switching ideology afterwards :P
+			GER_erwin_von_witzleben = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						ideology = conservatism
+						expire = "1942.1.1.1" #health
+						traits = {  }
+					}
+				}
+			}
+			###SPAWN COMMIE GER
+			every_character = {
+				limit = {
+					OR = {
+						is_character = GER_ernst_thalmann
+						is_character = GER_Walter_Ulbricht
+						is_character = GER_franz_jacob
+						is_character = GER_Franz_Dahlem
+						is_character = GER_Bernhard_Bastlein
+					}
+				}
+				set_nationality = event_target:communist_germany
+			}
 			transfer_units_fraction= {
-				target = event_target:conservative_germany
+				target = event_target:communist_germany
 				size = 0.4
 				stockpile_ratio = 0.55 #industrial core
 				army_ratio = 0.4
@@ -13531,9 +13496,8 @@ country_event = { #Germany civil war
 					always = yes 
 				}
 			}
-			#create fascist paramilitaries here, after splitting and after the player can mess with them
 			division_template = {
-				name = "SS-Sturmbrigade"
+				name = "Landsturmregiment"
 				is_locked = yes
 			
 				division_names_group = GER_Inf_01
@@ -13549,29 +13513,124 @@ country_event = { #Germany civil war
 				}
 			}
 			every_controlled_state = {
+				limit = {
+					OR = {
+						state = 67 #Poland enclave
+						state = 54 #East
+						state = 848 #Upper
+						state = 849 #Center
+					}
+				}
 				create_unit = {
-					division = "name = \"Infantry Division\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.05"
+					division = "name = \"Infantry Division\" division_template = \"Landsturmregiment\" start_experience_factor = 0.05"
 					owner = PREV
-					allow_spawning_on_enemy_provs = no
-				}				
+				}
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Landsturmregiment\" start_experience_factor = 0.05"
+					owner = PREV
+				}
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Landsturmregiment\" start_experience_factor = 0.05"
+					owner = PREV
+				}
 			}
-		}
-		event_target:conservative_germany = {
-			change_tag_from = ROOT
 		}
 	}
 	option = { #Commies
 		name = r56.ger.25.b
 		hidden_effect = {
-			transfer_units_fraction= {
-				target = event_target:communist_germany
-				size = 0.2
-				stockpile_ratio = 0.2 #bit of raiding
-				army_ratio = 0.15
-				navy_ratio = 0.1 #no majorities in naval regions
-				air_ratio = 0.05
-				keep_unit_leaders_trigger = {
-					always = yes 
+			complete_national_focus = GER_repeal_reichstag_fire_decree
+			###SPAWN DEM GER
+			create_dynamic_country = { #democrats
+				original_tag = GER
+				set_country_flag = is_democratic_ger_cw
+				save_event_target_as = conservative_germany
+				transfer_state = 848 #East Rhineland
+				transfer_state = 50 
+				transfer_state = 51 #Rhineland
+				transfer_state = 52 #Bavaria
+				transfer_state = 53 #Bavaria
+				transfer_state = 54 #Bavaria
+				transfer_state = 42 #Mosselland
+				transfer_state = 849
+				transfer_state = 850 #Baden
+				transfer_state = 67 #Oppeln
+				set_politics = {
+					ruling_party = democratic
+				}
+				set_popularities = {
+					democratic = 45
+					neutrality = 25
+					fascism = 10
+					communism = 20
+				}
+				declare_war_on = {
+					target = ROOT
+					type = civil_war
+				}
+				add_civil_war_target = ROOT #does not seem to work like wiki lists
+				every_country = { #declare war on commie side
+					limit = {
+						original_tag = GER
+						not = {
+							tag = GER
+						}
+					}
+					declare_war_on = {
+						target = PREV
+						type = civil_war
+					}
+					add_civil_war_target = PREV #does not seem to work like wiki lists
+				}
+				load_focus_tree = german_focus #seems I cant keep progress since they are a different tag, force path
+				unlock_national_focus = GER_kill_hitler
+				unlock_national_focus = GER_political_turmoil
+				complete_national_focus = GER_restore_weimar  #no switching ideology afterwards :P
+				#do not split units yet, because player could sabotage the nazis before picking in event
+				add_ideas = {
+					limited_conscription
+					partial_economic_mobilisation
+				}
+				set_rule = {
+					can_send_volunteers = yes
+				}
+				division_template = {
+					name = "Landsturmregiment"
+					is_locked = yes
+				
+					division_names_group = GER_Inf_01
+				
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+					}
+					support = { 
+						engineer = { x = 0 y = 0 }
+					}
+				}
+				every_controlled_state = {
+					limit = {
+						OR = {
+							state = 67 #Poland enclave
+							state = 54 #East
+							state = 848 #Upper
+							state = 849 #Center
+						}
+					}
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Landsturmregiment\" start_experience_factor = 0.05"
+						owner = PREV
+					}
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Landsturmregiment\" start_experience_factor = 0.05"
+						owner = PREV
+					}
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Landsturmregiment\" start_experience_factor = 0.05"
+						owner = PREV
+					}
 				}
 			}
 			transfer_units_fraction= {
@@ -13585,33 +13644,6 @@ country_event = { #Germany civil war
 					always = yes 
 				}
 			}
-			#create fascist paramilitaries here, after splitting and after the player can mess with them
-			division_template = {
-				name = "SS-Sturmbrigade"
-				is_locked = yes
-			
-				division_names_group = GER_Inf_01
-			
-				regiments = {
-					infantry = { x = 0 y = 0 }
-					infantry = { x = 0 y = 1 }
-					infantry = { x = 0 y = 2 }
-					infantry = { x = 0 y = 3 }
-				}
-				support = { 
-					engineer = { x = 0 y = 0 }
-				}
-			}
-			every_controlled_state = {
-				create_unit = {
-					division = "name = \"Infantry Division\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.05"
-					owner = PREV
-					allow_spawning_on_enemy_provs = no
-				}
-			}
-		}
-		event_target:communist_germany = {
-			change_tag_from = ROOT
 		}
 		custom_effect_tooltip = GER_communists_are_pretty_hard_tt
 	}

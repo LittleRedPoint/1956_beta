@@ -8473,150 +8473,78 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = GER_civil_war_tt
 			hidden_effect = {
-				every_owned_state = { #get out of warzones
-					limit = {
-						OR = {
-							state = 60
-							state = 65
-							state = 848 #East Rhineland
-							state = 50 
-							state = 51 #Rhineland
-							state = 52 #Bavaria
-							state = 53 #Bavaria
-							state = 54 #Bavaria
-							state = 59 #Hannover, heavily contested
-							state = 42 #Mosselland
-							state = 849
-							state = 850 #Baden
-							state = 67 #Oppeln
-						}
-					}
-					teleport_armies = {
-						limit = {
-							tag = GER
-						}
-						to_state = 56 #tried array, didnt work right, this is a strategic place
-					}
-				}
-				if = {
+				# TELEPORT OUT OF NAZI STATES INSTEAD, OPPOSITE
+				# every_owned_state = { #get out of warzones
+				# 	limit = {
+				# 		OR = {
+				# 			state = 60
+				# 			state = 65
+				# 			state = 848 #East Rhineland
+				# 			state = 50 
+				# 			state = 51 #Rhineland
+				# 			state = 52 #Bavaria
+				# 			state = 53 #Bavaria
+				# 			state = 54 #Bavaria
+				# 			state = 59 #Hannover, heavily contested
+				# 			state = 42 #Mosselland
+				# 			state = 849
+				# 			state = 850 #Baden
+				# 			state = 67 #Oppeln
+				# 		}
+				# 	}
+				# 	teleport_armies = {
+				# 		limit = {
+				# 			tag = GER
+				# 		}
+				# 		to_state = 56 #tried array, didnt work right, this is a strategic place
+				# 	}
+				# }
+				if = { #Since the civil war now works differently, the faction is always disbandoned, the nazis have a failsafe in a post-cw focus to recreate it
 					limit = {
 						is_faction_leader = yes
-						NOT = {
-							any_other_country = {
-								is_in_faction_with = GER
-							}
-						}
 					}
 					dismantle_faction = yes
 				}
-				add_popularity = {
-					ideology = fascism
-					popularity = 0.3 #these are splitting off
-				}
-				create_dynamic_country = { #commies
+				##CREATE ONLY NAZIS IMMEDIATELY, WHILE CHOICE DETERMINES WHO REBELS
+				create_dynamic_country = { #nazis
 					original_tag = GER
-					set_country_flag = is_commie_ger_cw
-					transfer_state = 60
-					transfer_state = 65
-					set_province_controller = 9560
-					set_province_controller = 9375
-					set_province_controller = 6218
-					set_province_controller = 6377
-					set_province_controller = 6487
-					set_province_controller = 11468
-					set_province_controller = 11402
-					set_province_controller = 11493
-					set_province_controller = 6513
-					set_province_controller = 526
-					set_province_controller = 3522
-					set_province_controller = 3526
-					set_province_controller = 6298
+					set_country_flag = is_nazi_ger_cw
+					#In order of north to south, then west to east
+					transfer_state = 56 #Weserems
+					transfer_state = 57 #Westfalen
+					transfer_state = 55 #Hessen
+					transfer_state = 58 #Schlewig-Holstein
+					transfer_state = 59 #Hannover, contested with commies which had supporters in Hamburg
+					transfer_state = 61 #Mecklenburg
+					transfer_state = 64 #Berlin
+					transfer_state = 63 #Hinterpommern
+					transfer_state = 68 #Neumark
+					transfer_state = 66 #Niederschlesien
+					transfer_state = 763 #Konigsberg
+					transfer_state = 5 #Ermland Measuren
 					set_politics = {
-						ruling_party = communism
+						ruling_party = fascism
 					}
 					add_popularity = {
-						ideology = communism
+						ideology = fascism
 						popularity = 0.75
 					}
 					declare_war_on = {
-						target = GER
+						target = ROOT
 						type = civil_war
 					}
 					add_civil_war_target = ROOT #does not seem to work like wiki lists
-					set_capital = {state = 65} #largest communist share
 					load_focus_tree = german_focus #seems I cant keep progress since they are a different tag, force path
-					unlock_national_focus = GER_kill_hitler
-					unlock_national_focus = GER_political_turmoil
-					complete_national_focus = GER_repeal_reichstag_fire_decree
-					#do not split units yet, because player could sabotage the nazis before picking in event
+					complete_national_focus = GER_denounce_versailles
+					unlock_national_focus = GER_rhineland
 					add_ideas = {
 						extensive_conscription
-						war_economy
-					}
-					set_rule = {
-						can_send_volunteers = yes
-					}
-				}
-				create_dynamic_country = { #democrats
-					original_tag = GER
-					set_country_flag = is_democratic_ger_cw
-					transfer_state = 848 #East Rhineland
-					transfer_state = 50 
-					transfer_state = 51 #Rhineland
-					transfer_state = 52 #Bavaria
-					transfer_state = 53 #Bavaria
-					transfer_state = 54 #Bavaria
-					transfer_state = 42 #Mosselland
-					transfer_state = 849
-					transfer_state = 850 #Baden
-					transfer_state = 67 #Oppeln
-					set_politics = {
-						ruling_party = democratic
-					}
-					set_popularities = {
-						democratic = 45
-						neutrality = 25
-						fascism = 10
-						communism = 20
-					}
-					declare_war_on = {
-						target = GER
-						type = civil_war
-					}
-					add_civil_war_target = ROOT #does not seem to work like wiki lists
-					every_country = { #declare war on commie side
-						limit = {
-							original_tag = GER
-							not = {
-								tag = GER
-							}
-						}
-						declare_war_on = {
-							target = PREV
-							type = civil_war
-						}
-						add_civil_war_target = PREV #does not seem to work like wiki lists
-					}
-					load_focus_tree = german_focus #seems I cant keep progress since they are a different tag, force path
-					unlock_national_focus = GER_kill_hitler
-					unlock_national_focus = GER_political_turmoil
-					complete_national_focus = GER_restore_weimar  #no switching ideology afterwards :P
-					#do not split units yet, because player could sabotage the nazis before picking in event
-					add_ideas = {
-						limited_conscription
 						partial_economic_mobilisation
 					}
 					set_rule = {
 						can_send_volunteers = yes
 					}
 				}
-				uncomplete_national_focus = {
-					focus = GER_kill_hitler
-					uncomplete_children = yes
-					refund_political_power = no
-				}
-				complete_national_focus = GER_denounce_versailles
-				unlock_national_focus = GER_rhineland
 			}
 			country_event = r56.ger.25
 			set_global_flag = r56_german_cw_ongoing
