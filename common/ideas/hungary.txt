@@ -20,6 +20,44 @@ ideas = {
 				production_speed_arms_factory_factor = -0.75				
 			}
 		}
+		HUN_the_treaty_of_trianon_2 = {
+			picture = HUN_treaty_of_triannon
+			removal_cost = -1
+
+			allowed = {
+				original_tag = HUN
+			}
+
+			cancel = {
+				has_war = yes
+			}
+
+			modifier = {
+				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_conscription_tt
+				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_economy_tt
+				conversion_cost_civ_to_mil_factor = 0.5
+				production_speed_arms_factory_factor = -0.5				
+			}
+		}
+		HUN_the_treaty_of_trianon_3 = {
+			picture = HUN_treaty_of_triannon
+			removal_cost = -1
+
+			allowed = {
+				original_tag = HUN
+			}
+
+			cancel = {
+				has_war = yes
+			}
+
+			modifier = {
+				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_conscription_tt
+				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_economy_tt
+				conversion_cost_civ_to_mil_factor = 0.25
+				production_speed_arms_factory_factor = -0.25				
+			}
+		}				
 		HUN_fascist_leanings = {
 			
 			removal_cost = -1 
@@ -37,6 +75,21 @@ ideas = {
 				communism_acceptance = -50
 			}
 
+		}
+		HUN_hungarian_volunteer_soldiers = {
+			picture = chi_army_corruption3
+			removal_cost = -1 
+
+			allowed = {
+				original_tag = HUN
+			}
+
+			modifier = {
+				conscription_factor = 0.10
+				mobilization_speed = 0.05		
+				army_core_defence_factor = 0.05
+				army_core_attack_factor = 0.05						
+			}
 		}		
 	}
 	

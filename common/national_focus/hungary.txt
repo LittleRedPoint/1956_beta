@@ -66,6 +66,9 @@ focus_tree = {
 
 		
 		completion_reward = {
+			add_popularity = { ideology = democratic popularity = -0.05 }
+			add_popularity = { ideology = fascism popularity = 0.05 }	
+			add_popularity = { ideology = neutrality popularity = 0.05 }					
 			add_political_power = 100
 		}
 	}
@@ -79,7 +82,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = HUN_gombos_hungary
 
-		cost = 10
+		cost = 5
 		
 		ai_will_do = {
 			factor = 0
@@ -90,6 +93,7 @@ focus_tree = {
 
 		
 		completion_reward = {
+			add_ideas = HUN_hungarian_volunteer_soldiers
 		}
 	}
 	focus = {
