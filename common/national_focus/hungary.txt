@@ -121,7 +121,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_friendship_pact_with_italy
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_generic_befriend_italy
 		
 	 	prerequisite = { focus = HUN_prepare_for_a_one_party_state }	
 		
@@ -144,7 +144,7 @@ focus_tree = {
 	}	
 	focus = {
 		id = HUN_german_trade_agreement
-		icon = GFX_goal_flag_hungary
+		icon = GFX_focus_generic_seek_accomodation_with_germany
 		
 	 	prerequisite = { focus = HUN_prepare_for_a_one_party_state }	
 		
