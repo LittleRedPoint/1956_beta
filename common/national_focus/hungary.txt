@@ -167,7 +167,7 @@ focus_tree = {
 	}	
 	focus = {
 		id = HUN_axis_based_imports
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_generic_consumer_goods
 		
 	 	prerequisite = { focus = HUN_german_trade_agreement focus = HUN_friendship_pact_with_italy }			
 		
@@ -190,7 +190,7 @@ focus_tree = {
 	}	
 	focus = {
 		id = HUN_eternal_friendship_treaty
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_generic_befriend_yugoslavia
 		
 	 	prerequisite = { focus = HUN_prepare_for_a_one_party_state }	
 		
@@ -213,7 +213,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_denounce_the_territorial_loss
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_generic_position_armies
 		
 	 	prerequisite = { focus = HUN_gombos_hungary }	
 		
@@ -258,7 +258,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_gather_foreign_support
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_generic_intelligence_exchange
 		
 	 	prerequisite = { focus = HUN_denounce_the_territorial_loss }	
 		
@@ -350,7 +350,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_denounce_the_little_entente
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_ger_fate_of_czech
 		
 	 	prerequisite = { focus = HUN_friendship_pact_with_italy focus = HUN_german_trade_agreement }	
 		
@@ -373,7 +373,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_the_bled_agreement
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_FRA_reynaud_economic_reforms
 		
 	 	prerequisite = { focus = HUN_friendship_pact_with_italy focus = HUN_german_trade_agreement }	
 		
@@ -396,8 +396,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_official_axis_membership
-		icon = GFX_goal_flag_hungary
-		
+		icon = GFX_goal_generic_the_axis
 	 	prerequisite = { focus = HUN_denounce_the_little_entente }	
 		mutually_exclusive = { focus = HUN_solidify_the_rome_protocols }
 
@@ -420,7 +419,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_solidify_the_rome_protocols
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_italy_militarize_the_rome_protocols
 		
 	 	prerequisite = { focus = HUN_denounce_the_little_entente }	
 		mutually_exclusive = { focus = HUN_official_axis_membership }
@@ -440,11 +439,56 @@ focus_tree = {
 
 		
 		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			if = {
+				limit = {
+					any_country = {
+						is_faction_leader = yes
+						NOT = {
+							has_government = communism
+						}
+						OR = {
+							original_tag = ITA
+							original_tag = AUS
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							has_government = communism
+						}
+						OR = {
+							original_tag = ITA
+							original_tag = AUS
+						}
+					}
+					country_event = generic.2
+				}
+			}
+			else = {
+				create_faction = "The Rome Protocols"
+				every_other_country = {
+					limit = {
+						is_in_faction = no
+						is_subject = no
+						NOT = {
+							has_government = communism
+						}
+						OR = {
+							original_tag = ITA
+							original_tag = AUS
+						}
+					}
+					country_event = generic.5
+				}
+			}
 		}
 	}
 	focus = {
-		id = HUN_abandon_the_trianon_treaty
-		icon = GFX_goal_flag_hungary
+		id = HUN_abandon_the_treaty_of_trianon
+		icon = GFX_focus_renounce_the_treaty_of_trianon
 		
 	 	prerequisite = { focus = HUN_solidify_the_rome_protocols focus = HUN_official_axis_membership }	
 		
