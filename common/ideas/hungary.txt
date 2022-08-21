@@ -16,8 +16,10 @@ ideas = {
 			modifier = {
 				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_conscription_tt
 				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_economy_tt
-				conversion_cost_civ_to_mil_factor = 0.75
-				production_speed_arms_factory_factor = -0.75				
+				conversion_cost_civ_to_mil_factor = 0.65
+				production_speed_arms_factory_factor = -0.65
+				production_speed_rail_way_factor = -0.95
+				production_speed_supply_node_factor = -0.95				
 			}
 		}
 		HUN_the_treaty_of_trianon_2 = {
