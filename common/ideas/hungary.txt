@@ -59,7 +59,26 @@ ideas = {
 				conversion_cost_civ_to_mil_factor = 0.25
 				production_speed_arms_factory_factor = -0.25				
 			}
-		}				
+		}	
+		HUN_the_treaty_of_trianon_4 = {
+			picture = HUN_treaty_of_triannon
+			removal_cost = -1
+
+			allowed = {
+				original_tag = HUN
+			}
+
+			cancel = {
+				has_war = yes
+			}
+
+			modifier = {
+				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_conscription_tt
+				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_economy_tt
+				conversion_cost_civ_to_mil_factor = 0.10
+				production_speed_arms_factory_factor = -0.10				
+			}
+		}					
 		HUN_fascist_leanings = {
 			
 			removal_cost = -1 
@@ -87,6 +106,7 @@ ideas = {
 			}
 
 			modifier = {
+				local_non_core_manpower	= -0.1		
 				conscription_factor = 0.10
 				mobilization_speed = 0.05		
 				army_core_defence_factor = 0.05

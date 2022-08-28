@@ -167,7 +167,7 @@ focus_tree = {
 	}	
 	focus = {
 		id = HUN_axis_based_imports
-		icon = GFX_goal_generic_consumer_goods
+		icon = GFX_goal_hungary_axis_based_imports
 		
 	 	prerequisite = { focus = HUN_german_trade_agreement focus = HUN_friendship_pact_with_italy }			
 		
@@ -213,7 +213,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_denounce_the_territorial_loss
-		icon = GFX_goal_generic_position_armies
+		icon = GFX_goal_greater_hungary_claims
 		
 	 	prerequisite = { focus = HUN_gombos_hungary }	
 		
@@ -373,7 +373,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_the_bled_agreement
-		icon = GFX_goal_FRA_reynaud_economic_reforms
+		icon = GFX_goal_hungary_bled_agreement
 		
 	 	prerequisite = { focus = HUN_friendship_pact_with_italy focus = HUN_german_trade_agreement }	
 		

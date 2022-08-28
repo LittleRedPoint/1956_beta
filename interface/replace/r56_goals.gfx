@@ -4560,7 +4560,18 @@ spriteTypes = {
 		name = "GFX_goal_hungary_reclaim_venetia"
 		texturefile = "gfx/interface/goals/hun/goal_hungary_reclaim_venetia.dds"
 	}
-
+	SpriteType = {
+		name = "GFX_goal_hungary_bled_agreement"
+		texturefile = "gfx/interface/goals/hun/r56_goal_hungary_bled_agreement.dds"
+	}
+	SpriteType = {
+		name = "GFX_goal_hungary_axis_based_imports"
+		texturefile = "gfx/interface/goals/hun/r56_goal_hungary_axis_based_imports.dds"
+	}	
+	SpriteType = {
+		name = "GFX_goal_greater_hungary_claims"
+		texturefile = "gfx/interface/goals/hun/r56_goal_greater_hungary_claims.dds"
+	}
 
 ###------> IRE <><> <><> <><> <><> <><>
 	SpriteType = {
