@@ -21,10 +21,6 @@ country_event = {
 			base = 10
 			modifier = {
 				add = 10
-				has_country_flag = HUN_YUG_eternal_friendship_treaty
-			}
-			modifier = {
-				add = 10
 				HUN = {
 					OR = {
 						has_ideas = HUN_the_treaty_of_trianon_1
@@ -49,7 +45,14 @@ country_event = {
 					is_in_faction_with = YUG
 				}
 			}								
-		}		
+		}
+		effect_tooltip = {
+			diplomatic_relation = {
+				country = HUN
+				relation = non_aggression_pact
+				active = yes
+			}
+		}				
 	}
 	option = {
 		ai_chance = { 
