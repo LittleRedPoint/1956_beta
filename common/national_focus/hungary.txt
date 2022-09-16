@@ -18,7 +18,7 @@ focus_tree = {
 
 	focus = {
 		id = HUN_the_unity_party
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_HUN_unity_party
 		
 	 	prerequisite = { }
 		mutually_exclusive = { focus = HUN_the_party_of_national_will }
@@ -208,8 +208,7 @@ focus_tree = {
 		}
 
 		
-		completion_reward = {
-		}
+ 		completion_reward = { YUG = { country_event = hungary_nap.1 } }
 	}
 	focus = {
 		id = HUN_denounce_the_territorial_loss
@@ -221,7 +220,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = HUN_gombos_hungary
 
-		cost = 10
+		cost = 5
 		
 		ai_will_do = {
 			factor = 0
@@ -277,11 +276,12 @@ focus_tree = {
 
 		
 		completion_reward = {
+			unlock_decision_category_tooltip = HUN_gather_foreign_support_category
 		}
 	}
 	focus = {
 		id = HUN_upper_hungary_not_slovakia
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_HUN_take_slovakia
 		
 	 	prerequisite = { focus = HUN_gather_foreign_support }	
 		
@@ -304,7 +304,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_return_of_vojvodina
-		icon = GFX_goal_generic_attack_yugoslavia
+		icon = GFX_goal_HUN_take_vojvodina_croatia
 		
 	 	prerequisite = { focus = HUN_gather_foreign_support }	
 		
@@ -327,7 +327,7 @@ focus_tree = {
 	}
 	focus = {
 		id = HUN_the_transylvanian_transgression
-		icon = GFX_goal_strike_romania
+		icon = GFX_goal_HUN_take_transylvania
 		
 	 	prerequisite = { focus = HUN_gather_foreign_support }	
 		
@@ -511,7 +511,7 @@ focus_tree = {
 	}						
 	focus = {
 		id = HUN_the_party_of_national_will
-		icon = GFX_goal_flag_hungary
+		icon = GFX_goal_HUN_party_national_will
 		
 	 	prerequisite = { }	
 		mutually_exclusive = { focus = HUN_the_unity_party }
@@ -556,5 +556,6 @@ focus_tree = {
 		completion_reward = {
 		}
 	}
+
 																
 }

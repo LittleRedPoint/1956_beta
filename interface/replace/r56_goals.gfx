@@ -4631,6 +4631,34 @@ spriteTypes = {
 		name = "GFX_goal_greater_hungary_claims"
 		texturefile = "gfx/interface/goals/hun/r56_goal_greater_hungary_claims.dds"
 	}
+	SpriteType = {
+		name = "GFX_goal_HUN_take_transylvania"
+		texturefile = "gfx/interface/goals/hun/r56_goal_HUN_take_transylvania.dds"
+	}
+	SpriteType = {
+		name = "GFX_goal_HUN_take_slovakia"
+		texturefile = "gfx/interface/goals/hun/r56_goal_HUN_take_slovakia.dds"
+	}		
+	SpriteType = {
+		name = "GFX_goal_HUN_take_vojvodina_croatia"
+		texturefile = "gfx/interface/goals/hun/r56_goal_HUN_take_vojvodina_croatia.dds"
+	}
+	SpriteType = {
+		name = "GFX_goal_HUN_take_croatia"
+		texturefile = "gfx/interface/goals/hun/r56_goal_HUN_take_croatia.dds"
+	}				
+	SpriteType = {
+		name = "GFX_goal_HUN_take_vojvodina"
+		texturefile = "gfx/interface/goals/hun/r56_goal_HUN_take_vojvodina.dds"
+	}	
+	SpriteType = {
+		name = "GFX_goal_HUN_party_national_will"
+		texturefile = "gfx/interface/goals/hun/r56_goal_HUN_party_national_will.dds"
+	}
+	SpriteType = {
+		name = "GFX_goal_HUN_unity_party"
+		texturefile = "gfx/interface/goals/hun/r56_goal_HUN_unity_party.dds"
+	}		
 
 ###------> IRE <><> <><> <><> <><> <><>
 	SpriteType = {

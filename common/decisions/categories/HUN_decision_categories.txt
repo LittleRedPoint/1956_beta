@@ -1,26 +1,3 @@
-HUN_bernadotte_dynastic_ties_decision_category = {
-	icon = generic_monarchism
-	allowed = {
-		always = yes
-	}
-	priority = 90
-	visible = {
-		original_tag = HUN
-		has_idea = HUN_charles_v
-	}
-}
-
-HUN_hungarian_minorities_recruitment_decision_category = {
-	icon = military_operation
-	allowed = {
-		always = yes
-	}
-	priority = 90
-	visible = {
-		original_tag = HUN
-		has_completed_focus = HUN_hungarian_minorities_recruitment_agreement
-	}
-}
 
 HUN_gyor_program_decision_category = {
 	
@@ -44,5 +21,16 @@ HUN_gyor_program_decision_category = {
 
 	visible = {
 	
+	}
+}
+HUN_gather_foreign_support_category = {
+	icon = hol_attract_foreign_investors
+
+	allowed = {
+		tag = HUN
+	}
+
+	available = {
+		has_completed_focus = HUN_gather_foreign_support
 	}
 }

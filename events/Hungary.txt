@@ -8,15 +8,15 @@ add_namespace = hungary_auth
 add_namespace = hungary_fasc
 
 country_event = {
-	id = hungary.1
-	title = hungary.1.t
-	desc = hungary.1.d
+	id = hungary_nap.1
+	title = hungary_nap.1.t
+	desc = hungary_nap.1.d
 	picture = GFX_report_event_generic_read_write
 	 
 	is_triggered_only = yes
 	
 	option = {
-		name = hungary.1.a
+		name = hungary_nap.1.a
 		ai_chance = { 
 			base = 10
 			modifier = {
