@@ -117,6 +117,18 @@ focus_tree = {
 
 		
 		completion_reward = {
+            every_other_country = {
+                limit = {
+                    has_government = democratic
+					capital_scope = {
+                    	is_on_continent = Europe
+					}
+                }
+				add_opinion_modifier = {
+					target = HUN
+					modifier = HUN_moving_away_from_democracy
+				}
+            }
 		}
 	}
 	focus = {

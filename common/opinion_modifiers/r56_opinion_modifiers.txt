@@ -618,6 +618,8 @@ opinion_modifiers = {
 	
 	HUN_ger_diplomacy_focus = { value = 50 }
 
+	HUN_moving_away_from_democracy = { value = -50 }
+
 ###------> ICE <><> <><> <><> <><> <><>
 	
 	ICE_loyal_subject = {
