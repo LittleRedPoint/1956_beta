@@ -112,6 +112,7 @@ focus_tree = {
 			factor = 0
 		}
 	 	available = {
+			is_subject = no
 			always = no
 		}
 
@@ -121,6 +122,7 @@ focus_tree = {
                 limit = {
                     has_government = democratic
 					capital_scope = {
+						is_core_of = PREV
                     	is_on_continent = Europe
 					}
                 }
@@ -129,6 +131,8 @@ focus_tree = {
 					modifier = HUN_moving_away_from_democracy
 				}
             }
+			add_political_power = 50
+			add_ideas = HUN_one_party_state_preparations
 		}
 	}
 	focus = {
@@ -404,6 +408,10 @@ focus_tree = {
 
 		
 		completion_reward = {
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				HUN_treaty_of_trianon_level_up = yes
+			}			
 		}
 	}
 	focus = {
@@ -519,6 +527,7 @@ focus_tree = {
 
 		
 		completion_reward = {
+			HUN_treaty_of_trianon_level_up = yes
 		}
 	}						
 	focus = {

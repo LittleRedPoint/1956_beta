@@ -1,0 +1,27 @@
+HUN_treaty_of_trianon_level_up = {
+	if = {
+		limit = { has_idea = HUN_the_treaty_of_trianon_4 }
+		remove_ideas = HUN_the_treaty_of_trianon_4
+	}
+	if = {
+		limit = { has_idea = HUN_the_treaty_of_trianon_3 }
+		swap_ideas = {
+			remove_idea = HUN_the_treaty_of_trianon_3
+			add_idea = HUN_the_treaty_of_trianon_4
+		}
+	}
+	if = {
+		limit = { has_idea = HUN_the_treaty_of_trianon_2 }
+		swap_ideas = {
+			remove_idea = HUN_the_treaty_of_trianon_2
+			add_idea = HUN_the_treaty_of_trianon_3
+		}
+	}
+	if = {
+		limit = { has_idea = HUN_the_treaty_of_trianon_1 }
+		swap_ideas = {
+			remove_idea = HUN_the_treaty_of_trianon_1
+			add_idea = HUN_the_treaty_of_trianon_2
+		}
+	}			
+}

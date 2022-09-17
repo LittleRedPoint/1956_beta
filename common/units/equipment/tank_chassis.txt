@@ -7,7 +7,13 @@ equipments = {
 
 		can_be_produced = {
 			NOT = {
-				has_idea = BUL_army_restrictions
+				OR = {
+					has_idea = BUL_army_restrictions
+					has_idea = HUN_the_treaty_of_trianon_4
+					has_idea = HUN_the_treaty_of_trianon_3
+					has_idea = HUN_the_treaty_of_trianon_2
+					has_idea = HUN_the_treaty_of_trianon_1															
+				}
 			}
 		}
 
@@ -238,7 +244,13 @@ equipments = {
 		is_buildable = no
 		can_be_produced = {
 			NOT = {
-				has_idea = BUL_army_restrictions
+				OR = {
+					has_idea = BUL_army_restrictions
+					has_idea = HUN_the_treaty_of_trianon_4
+					has_idea = HUN_the_treaty_of_trianon_3
+					has_idea = HUN_the_treaty_of_trianon_2
+					has_idea = HUN_the_treaty_of_trianon_1															
+				}
 			}
 		}
 		picture = archetype_medium_tank_equipment
@@ -465,7 +477,13 @@ equipments = {
 		is_buildable = no
 		can_be_produced = {
 			NOT = {
-				has_idea = BUL_army_restrictions
+				OR = {
+					has_idea = BUL_army_restrictions
+					has_idea = HUN_the_treaty_of_trianon_4
+					has_idea = HUN_the_treaty_of_trianon_3
+					has_idea = HUN_the_treaty_of_trianon_2
+					has_idea = HUN_the_treaty_of_trianon_1															
+				}
 			}
 		}
 		picture = archetype_heavy_tank_equipment
@@ -691,7 +709,13 @@ equipments = {
 		is_buildable = no
 		can_be_produced = {
 			NOT = {
-				has_idea = BUL_army_restrictions
+				OR = {
+					has_idea = BUL_army_restrictions
+					has_idea = HUN_the_treaty_of_trianon_4
+					has_idea = HUN_the_treaty_of_trianon_3
+					has_idea = HUN_the_treaty_of_trianon_2
+					has_idea = HUN_the_treaty_of_trianon_1															
+				}
 			}
 		}
 		picture = archetype_modern_tank_equipment
@@ -903,7 +927,13 @@ equipments = {
 		is_buildable = no
 		can_be_produced = {
 			NOT = {
-				has_idea = BUL_army_restrictions
+				OR = {
+					has_idea = BUL_army_restrictions
+					has_idea = HUN_the_treaty_of_trianon_4
+					has_idea = HUN_the_treaty_of_trianon_3
+					has_idea = HUN_the_treaty_of_trianon_2
+					has_idea = HUN_the_treaty_of_trianon_1															
+				}
 			}
 		}
 		picture = archetype_super_heavy_tank_equipment
@@ -1075,7 +1105,13 @@ equipments = {
 		is_buildable = no
 		can_be_produced = {
 			NOT = {
-				has_idea = BUL_army_restrictions
+				OR = {
+					has_idea = BUL_army_restrictions
+					has_idea = HUN_the_treaty_of_trianon_4
+					has_idea = HUN_the_treaty_of_trianon_3
+					has_idea = HUN_the_treaty_of_trianon_2
+					has_idea = HUN_the_treaty_of_trianon_1															
+				}
 			}
 		}
 		picture = archetype_amphibious_tank_equipment

@@ -14,6 +14,16 @@ equipments = {
 		group_by = archetype
 		
 		interface_category = interface_category_land
+
+		can_be_produced = {
+			NOT = {
+				OR = {
+					has_idea = HUN_the_treaty_of_trianon_3
+					has_idea = HUN_the_treaty_of_trianon_2
+					has_idea = HUN_the_treaty_of_trianon_1															
+				}
+			}
+		}		
 		
 		# Upgrades (More Variants Mod)
 		upgrades = {

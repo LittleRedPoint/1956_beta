@@ -16,6 +16,7 @@ ideas = {
 			modifier = {
 				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_conscription_tt
 				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_economy_tt
+				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_equipment_full_restriction_tt
 				conversion_cost_civ_to_mil_factor = 0.65
 				production_speed_arms_factory_factor = -0.65
 				production_speed_rail_way_factor = -0.95
@@ -37,8 +38,11 @@ ideas = {
 			modifier = {
 				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_conscription_tt
 				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_economy_tt
+				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_equipment_full_restriction_tt				
 				conversion_cost_civ_to_mil_factor = 0.5
-				production_speed_arms_factory_factor = -0.5				
+				production_speed_arms_factory_factor = -0.5	
+				production_speed_rail_way_factor = -0.5
+				production_speed_supply_node_factor = -0.5								
 			}
 		}
 		HUN_the_treaty_of_trianon_3 = {
@@ -56,6 +60,7 @@ ideas = {
 			modifier = {
 				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_conscription_tt
 				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_economy_tt
+				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_equipment_full_restriction_tt				
 				conversion_cost_civ_to_mil_factor = 0.25
 				production_speed_arms_factory_factor = -0.25				
 			}
@@ -75,6 +80,7 @@ ideas = {
 			modifier = {
 				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_conscription_tt
 				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_economy_tt
+				custom_modifier_tooltip = HUN_treaty_of_trianon_tooltip_equipment_light_restriction_tt				
 				conversion_cost_civ_to_mil_factor = 0.10
 				production_speed_arms_factory_factor = -0.10				
 			}
@@ -112,7 +118,21 @@ ideas = {
 				army_core_defence_factor = 0.05
 				army_core_attack_factor = 0.05						
 			}
-		}		
+		}
+		HUN_one_party_state_preparations = {
+			picture = chi_army_corruption3
+			removal_cost = -1 
+
+			allowed = {
+				original_tag = HUN
+			}
+
+			modifier = {
+				democratic_drift = -0.1
+				fascism_drift = 0.03
+				neutrality_drift = 0.03							
+			}
+		}				
 	}
 	
 	aircraft_manufacturer = {
