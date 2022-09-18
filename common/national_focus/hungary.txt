@@ -227,144 +227,6 @@ focus_tree = {
  		completion_reward = { YUG = { country_event = hungary_nap.1 } }
 	}
 	focus = {
-		id = HUN_denounce_the_territorial_loss
-		icon = GFX_goal_greater_hungary_claims
-		
-	 	prerequisite = { focus = HUN_gombos_hungary }	
-		
-		x = -2
-		y = 1
-		relative_position_id = HUN_gombos_hungary
-
-		cost = 5
-		
-		ai_will_do = {
-			factor = 0
-		}
-	 	available = {
-			always = no
-		}
-
-		
-		completion_reward = {
-			hidden_effect = {
-				# Slovakia 
-				664 = { add_claim_by = HUN }
-				70 = { add_claim_by = HUN }
-				71 = { add_claim_by = HUN }
-				73 = { add_claim_by = HUN }
-				# Transylvania
-				76 = { add_claim_by = HUN }
-				82 = { add_claim_by = HUN }
-				83 = { add_claim_by = HUN }
-				84 = { add_claim_by = HUN }
-				# Vojvodnia and upper Croatia
-				764 = { add_claim_by = HUN }
-				45 = { add_claim_by = HUN }
-				880 = { add_claim_by = HUN }
-				887 = { add_claim_by = HUN }
-				884 = { add_claim_by = HUN }
-				109 = { add_claim_by = HUN }
-				102 = { add_claim_by = HUN }
-				886 = { add_claim_by = HUN }
-			}
-			custom_effect_tooltip = HUN_denounce_the_territorial_loss_tt
-		}
-	}
-	focus = {
-		id = HUN_gather_foreign_support
-		icon = GFX_goal_generic_intelligence_exchange
-		
-	 	prerequisite = { focus = HUN_denounce_the_territorial_loss }	
-		
-		x = 0
-		y = 1
-		relative_position_id = HUN_denounce_the_territorial_loss
-
-		cost = 10
-		
-		ai_will_do = {
-			factor = 0
-		}
-	 	available = {
-			always = no
-		}
-
-		
-		completion_reward = {
-			unlock_decision_category_tooltip = HUN_gather_foreign_support_category
-		}
-	}
-	focus = {
-		id = HUN_upper_hungary_not_slovakia
-		icon = GFX_goal_HUN_take_slovakia
-		
-	 	prerequisite = { focus = HUN_gather_foreign_support }	
-		
-		x = 0
-		y = 2
-		relative_position_id = HUN_gather_foreign_support
-
-		cost = 10
-		
-		ai_will_do = {
-			factor = 0
-		}
-	 	available = {
-			always = no
-		}
-
-		
-		completion_reward = {
-		}
-	}
-	focus = {
-		id = HUN_return_of_vojvodina
-		icon = GFX_goal_HUN_take_vojvodina_croatia
-		
-	 	prerequisite = { focus = HUN_gather_foreign_support }	
-		
-		x = 1
-		y = 1
-		relative_position_id = HUN_gather_foreign_support
-
-		cost = 10
-		
-		ai_will_do = {
-			factor = 0
-		}
-	 	available = {
-			always = no
-		}
-
-		
-		completion_reward = {
-		}
-	}
-	focus = {
-		id = HUN_the_transylvanian_transgression
-		icon = GFX_goal_HUN_take_transylvania
-		
-	 	prerequisite = { focus = HUN_gather_foreign_support }	
-		
-		x = -1
-		y = 1
-		relative_position_id = HUN_gather_foreign_support
-
-		cost = 10
-		
-		ai_will_do = {
-			factor = 0
-		}
-	 	available = {
-			always = no
-		}
-
-		
-		completion_reward = {
-		}
-	}
-	focus = {
 		id = HUN_denounce_the_little_entente
 		icon = GFX_goal_ger_fate_of_czech
 		
@@ -529,7 +391,145 @@ focus_tree = {
 		completion_reward = {
 			HUN_treaty_of_trianon_level_up = yes
 		}
-	}						
+	}
+	focus = {
+		id = HUN_denounce_the_territorial_loss
+		icon = GFX_goal_greater_hungary_claims
+		
+	 	prerequisite = { focus = HUN_abandon_the_treaty_of_trianon }	
+		
+		x = -2
+		y = 1
+		relative_position_id = HUN_abandon_the_treaty_of_trianon
+
+		cost = 5
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+			hidden_effect = {
+				# Slovakia 
+				664 = { add_claim_by = HUN }
+				70 = { add_claim_by = HUN }
+				71 = { add_claim_by = HUN }
+				73 = { add_claim_by = HUN }
+				# Transylvania
+				76 = { add_claim_by = HUN }
+				82 = { add_claim_by = HUN }
+				83 = { add_claim_by = HUN }
+				84 = { add_claim_by = HUN }
+				# Vojvodnia and upper Croatia
+				764 = { add_claim_by = HUN }
+				45 = { add_claim_by = HUN }
+				880 = { add_claim_by = HUN }
+				887 = { add_claim_by = HUN }
+				884 = { add_claim_by = HUN }
+				109 = { add_claim_by = HUN }
+				102 = { add_claim_by = HUN }
+				886 = { add_claim_by = HUN }
+			}
+			custom_effect_tooltip = HUN_denounce_the_territorial_loss_tt
+		}
+	}
+	focus = {
+		id = HUN_gather_foreign_support
+		icon = GFX_goal_generic_intelligence_exchange
+		
+	 	prerequisite = { focus = HUN_denounce_the_territorial_loss }	
+		
+		x = 0
+		y = 1
+		relative_position_id = HUN_denounce_the_territorial_loss
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+			unlock_decision_category_tooltip = HUN_gather_foreign_support_category
+		}
+	}
+	focus = {
+		id = HUN_upper_hungary_not_slovakia
+		icon = GFX_goal_HUN_take_slovakia
+		
+	 	prerequisite = { focus = HUN_gather_foreign_support }	
+		
+		x = 0
+		y = 2
+		relative_position_id = HUN_gather_foreign_support
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_return_of_vojvodina
+		icon = GFX_goal_HUN_take_vojvodina_croatia
+		
+	 	prerequisite = { focus = HUN_gather_foreign_support }	
+		
+		x = 1
+		y = 1
+		relative_position_id = HUN_gather_foreign_support
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_the_transylvanian_transgression
+		icon = GFX_goal_HUN_take_transylvania
+		
+	 	prerequisite = { focus = HUN_gather_foreign_support }	
+		
+		x = -1
+		y = 1
+		relative_position_id = HUN_gather_foreign_support
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}							
 	focus = {
 		id = HUN_the_party_of_national_will
 		icon = GFX_goal_HUN_party_national_will
