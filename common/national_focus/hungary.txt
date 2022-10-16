@@ -98,6 +98,144 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = HUN_denounce_the_territorial_loss
+		icon = GFX_goal_greater_hungary_claims
+		
+	 	prerequisite = { focus = HUN_hungary_for_hungarians }	
+		
+		x = 0
+		y = 2
+		relative_position_id = HUN_hungary_for_hungarians
+
+		cost = 5
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+			hidden_effect = {
+				# Slovakia 
+				664 = { add_claim_by = HUN }
+				70 = { add_claim_by = HUN }
+				71 = { add_claim_by = HUN }
+				73 = { add_claim_by = HUN }
+				# Transylvania
+				76 = { add_claim_by = HUN }
+				82 = { add_claim_by = HUN }
+				83 = { add_claim_by = HUN }
+				84 = { add_claim_by = HUN }
+				# Vojvodnia and upper Croatia
+				764 = { add_claim_by = HUN }
+				45 = { add_claim_by = HUN }
+				880 = { add_claim_by = HUN }
+				887 = { add_claim_by = HUN }
+				884 = { add_claim_by = HUN }
+				109 = { add_claim_by = HUN }
+				102 = { add_claim_by = HUN }
+				886 = { add_claim_by = HUN }
+			}
+			custom_effect_tooltip = HUN_denounce_the_territorial_loss_tt
+		}
+	}
+	focus = {
+		id = HUN_gather_foreign_support
+		icon = GFX_goal_generic_intelligence_exchange
+		
+	 	prerequisite = { focus = HUN_denounce_the_territorial_loss }	
+		
+		x = 0
+		y = 1
+		relative_position_id = HUN_denounce_the_territorial_loss
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+			unlock_decision_category_tooltip = HUN_gather_foreign_support_category
+		}
+	}
+	focus = {
+		id = HUN_upper_hungary_not_slovakia
+		icon = GFX_goal_HUN_take_slovakia
+		
+	 	prerequisite = { focus = HUN_gather_foreign_support }	
+		
+		x = 0
+		y = 2
+		relative_position_id = HUN_gather_foreign_support
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_return_of_vojvodina
+		icon = GFX_goal_HUN_take_vojvodina_croatia
+		
+	 	prerequisite = { focus = HUN_gather_foreign_support }	
+		
+		x = 1
+		y = 1
+		relative_position_id = HUN_gather_foreign_support
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_the_transylvanian_transgression
+		icon = GFX_goal_HUN_take_transylvania
+		
+	 	prerequisite = { focus = HUN_gather_foreign_support }	
+		
+		x = -1
+		y = 1
+		relative_position_id = HUN_gather_foreign_support
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}								
+	focus = {
 		id = HUN_prepare_for_a_one_party_state
 		icon = GFX_goal_flag_hungary
 		
@@ -394,144 +532,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = HUN_denounce_the_territorial_loss
-		icon = GFX_goal_greater_hungary_claims
-		
-	 	prerequisite = { focus = HUN_abandon_the_treaty_of_trianon }	
-		
-		x = -2
-		y = 1
-		relative_position_id = HUN_abandon_the_treaty_of_trianon
-
-		cost = 5
-		
-		ai_will_do = {
-			factor = 0
-		}
-	 	available = {
-			always = no
-		}
-
-		
-		completion_reward = {
-			hidden_effect = {
-				# Slovakia 
-				664 = { add_claim_by = HUN }
-				70 = { add_claim_by = HUN }
-				71 = { add_claim_by = HUN }
-				73 = { add_claim_by = HUN }
-				# Transylvania
-				76 = { add_claim_by = HUN }
-				82 = { add_claim_by = HUN }
-				83 = { add_claim_by = HUN }
-				84 = { add_claim_by = HUN }
-				# Vojvodnia and upper Croatia
-				764 = { add_claim_by = HUN }
-				45 = { add_claim_by = HUN }
-				880 = { add_claim_by = HUN }
-				887 = { add_claim_by = HUN }
-				884 = { add_claim_by = HUN }
-				109 = { add_claim_by = HUN }
-				102 = { add_claim_by = HUN }
-				886 = { add_claim_by = HUN }
-			}
-			custom_effect_tooltip = HUN_denounce_the_territorial_loss_tt
-		}
-	}
-	focus = {
-		id = HUN_gather_foreign_support
-		icon = GFX_goal_generic_intelligence_exchange
-		
-	 	prerequisite = { focus = HUN_denounce_the_territorial_loss }	
-		
-		x = 0
-		y = 1
-		relative_position_id = HUN_denounce_the_territorial_loss
-
-		cost = 10
-		
-		ai_will_do = {
-			factor = 0
-		}
-	 	available = {
-			always = no
-		}
-
-		
-		completion_reward = {
-			unlock_decision_category_tooltip = HUN_gather_foreign_support_category
-		}
-	}
-	focus = {
-		id = HUN_upper_hungary_not_slovakia
-		icon = GFX_goal_HUN_take_slovakia
-		
-	 	prerequisite = { focus = HUN_gather_foreign_support }	
-		
-		x = 0
-		y = 2
-		relative_position_id = HUN_gather_foreign_support
-
-		cost = 10
-		
-		ai_will_do = {
-			factor = 0
-		}
-	 	available = {
-			always = no
-		}
-
-		
-		completion_reward = {
-		}
-	}
-	focus = {
-		id = HUN_return_of_vojvodina
-		icon = GFX_goal_HUN_take_vojvodina_croatia
-		
-	 	prerequisite = { focus = HUN_gather_foreign_support }	
-		
-		x = 1
-		y = 1
-		relative_position_id = HUN_gather_foreign_support
-
-		cost = 10
-		
-		ai_will_do = {
-			factor = 0
-		}
-	 	available = {
-			always = no
-		}
-
-		
-		completion_reward = {
-		}
-	}
-	focus = {
-		id = HUN_the_transylvanian_transgression
-		icon = GFX_goal_HUN_take_transylvania
-		
-	 	prerequisite = { focus = HUN_gather_foreign_support }	
-		
-		x = -1
-		y = 1
-		relative_position_id = HUN_gather_foreign_support
-
-		cost = 10
-		
-		ai_will_do = {
-			factor = 0
-		}
-	 	available = {
-			always = no
-		}
-
-		
-		completion_reward = {
-		}
-	}							
-	focus = {
 		id = HUN_the_party_of_national_will
 		icon = GFX_goal_HUN_party_national_will
 		
@@ -578,6 +578,236 @@ focus_tree = {
 		completion_reward = {
 		}
 	}
+	focus = {
+		id = HUN_industrial_focus_1
+		icon = GFX_goal_generic_construction_tools
+		
+	 	prerequisite = { }	
+		
+		x = 6
+		y = 0
+		relative_position_id = HUN_the_party_of_national_will
 
-																
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_industrial_focus_2
+		icon = GFX_goal_generic_construction_tools
+		
+	 	prerequisite = { focus = HUN_industrial_focus_1 }	
+		
+		x = 2
+		y = 1
+		relative_position_id = HUN_industrial_focus_1
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_industrial_focus_3
+		icon = GFX_goal_generic_construction_tools
+		
+	 	prerequisite = { focus = HUN_industrial_focus_2 }	
+		
+		x = 0
+		y = 2
+		relative_position_id = HUN_industrial_focus_2
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}		
+	focus = {
+		id = HUN_infrastructure_focus_1
+		icon = GFX_goal_generic_road
+		
+	 	prerequisite = { focus = HUN_industrial_focus_1 }	
+		
+		x = -2
+		y = 1
+		relative_position_id = HUN_industrial_focus_1
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_infrastructure_focus_2
+		icon = GFX_goal_generic_road
+		
+	 	prerequisite = { focus = HUN_infrastructure_focus_1 }	
+		
+		x = 0
+		y = 2
+		relative_position_id = HUN_infrastructure_focus_1
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_urbanization_focus_1
+		icon = GFX_goal_generic_construct_civ_factory
+		
+	 	prerequisite = { focus = HUN_infrastructure_focus_1 }
+		prerequisite = { focus = HUN_industrial_focus_2 }	
+		
+		x = 2
+		y = 1
+		relative_position_id = HUN_infrastructure_focus_1
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_urbanization_focus_2
+		icon = GFX_goal_generic_construct_civ_factory
+		
+	 	prerequisite = { focus = HUN_urbanization_focus_1 }
+		
+		x = 0
+		y = 1
+		relative_position_id = HUN_urbanization_focus_1
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_urbanization_focus_3
+		icon = GFX_goal_generic_construct_civ_factory
+		
+	 	prerequisite = { focus = HUN_infrastructure_focus_2 }
+		prerequisite = { focus = HUN_industrial_focus_3 }	
+		
+		x = 2
+		y = 1
+		relative_position_id = HUN_infrastructure_focus_2
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	 	available = {
+			always = no
+		}
+
+		
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_the_gyor_program
+		icon = GFX_goal_generic_construct_mil_factory
+
+		prerequisite = { focus = HUN_urbanization_focus_3 }
+		mutually_exclusive = { focus = HUN_the_civilian_sector_expansion }
+
+		x = 1
+		y = 1
+		relative_position_id = HUN_urbanization_focus_3
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			always = no
+		}
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = HUN_the_civilian_sector_expansion
+		icon = GFX_focus_generic_industry_3
+
+		prerequisite = { focus = HUN_urbanization_focus_3 }
+		mutually_exclusive = { focus = HUN_the_gyor_program }
+
+		x = -1
+		y = 1
+		relative_position_id = HUN_urbanization_focus_3
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			always = no
+		}
+
+		completion_reward = {
+		}
+	}																							
 }
