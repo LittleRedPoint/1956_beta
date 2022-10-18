@@ -73,22 +73,30 @@ HUN_return_of_vojvodina_desc:0 " "
 
 
 
+#### Industrial Focuses
+HUN_industrial_focus_1:0 "Industrial Focus"
+HUN_industrial_focus_1_desc:0 " "
+HUN_industrial_focus_2:0 "Industrial Focus"
+HUN_industrial_focus_2_desc:0 " "
+HUN_industrial_focus_3:0 "Industrial Focus"
+HUN_industrial_focus_3_desc:0 " "
+HUN_infrastructure_focus_1:0 "Infrastructure Focus"
+HUN_infrastructure_focus_1_desc:0 " "
+HUN_infrastructure_focus_2:0 "Infrastructure Focus"
+HUN_infrastructure_focus_2_desc:0 " "
+HUN_urbanization_focus_1:0 "Urbanization Focus"
+HUN_urbanization_focus_1_desc:0 " "
+HUN_urbanization_focus_2:0 "Urbanization Focus"
+HUN_urbanization_focus_2_desc:0 " "
+HUN_increase_budapest_university_funding:0 "Increase the University of Budapest's Funding"
+HUN_increase_budapest_university_funding_desc:0 " "
+HUN_the_civilian_sector_expansion:0 "The Civilian Sector expansion"
+HUN_the_civilian_sector_expansion_desc:0 " "
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### Györ Program
+HUN_the_gyor_program:0 "The Györ Program"
+HUN_the_gyor_program_desc:0 " "
 
 
 
