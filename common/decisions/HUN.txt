@@ -86,7 +86,6 @@ HUN_gather_foreign_support_category = {
 					is_core_of = FROM
 					is_on_continent = Europe
 				}
-				is_faction_leader = yes
 				is_subject = no
 				has_capitulated = no
 				NOT = {
