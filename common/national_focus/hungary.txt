@@ -79,7 +79,7 @@ focus_tree = {
 		
 	 	prerequisite = { focus = HUN_gombos_hungary }	
 		
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = HUN_gombos_hungary
 
@@ -101,11 +101,11 @@ focus_tree = {
 		id = HUN_denounce_the_territorial_loss
 		icon = GFX_goal_greater_hungary_claims
 		
-	 	prerequisite = { focus = HUN_hungary_for_hungarians }	
+	 	prerequisite = { focus = HUN_gombos_hungary }	
 		
-		x = 0
-		y = 2
-		relative_position_id = HUN_hungary_for_hungarians
+		x = -1
+		y = 1
+		relative_position_id = HUN_gombos_hungary
 
 		cost = 5
 		
@@ -139,6 +139,7 @@ focus_tree = {
 				102 = { add_claim_by = HUN }
 				886 = { add_claim_by = HUN }
 			}
+			add_political_power = 50
 			custom_effect_tooltip = HUN_denounce_the_territorial_loss_tt
 		}
 	}
